@@ -1,0 +1,21 @@
+var html='<p id="p03">this is p3 here!</p>'
+
+function process($){
+	var router1=function(req,res,next){
+		var text=': toms+SUCCESS'
+		$("#p03").append(text)	
+		next()
+	}
+	return router1;
+}
+
+
+
+function ajax(app1){
+	app1.get('/ajax/upload',function(req,res){
+	
+	})
+}
+exports.html=html
+exports.process=process
+exports.ajax=ajax

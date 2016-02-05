@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="../G_xxx/xxx.css">
+<script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</body>
+<!-- 需要对某个模块进行修改时，并不需要建立专门的css 和 js 文件 并引入，直接在它们自身上修改，只需要修改两处地方，1是link中的css文件 2是data-main 中的js文件.这时模块就会被引入到xxx.html 页面上来，但还不会显示出来，需要到模块js文件中实例化自身，即在 return G_XXX 之前调用 addModule 封装方法，修改完之后记得把此方法删除干净 .
+最后一项是把模块中的html属性的 字符串内容剪切到 上面的body标签中去 以方便修改，否则在字符串中改来改去相当麻烦，改完之后就再剪切回去即可。
+-->
+<script src="../lib/require.js" data-main="../G_xxx/xxx.js"></script>
+</html>

@@ -1,0 +1,905 @@
+/* ~~~~~~~~~~~~~~~~~~~init~~~~~~~~~~~~~~~~~~~~~~~~~ */	
+*{
+	margin:0px;
+	padding:0px;}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;}
+
+img{
+	display:block;}
+a{
+	text-decoration:none;
+	color:#000;
+	cursor:pointer;
+	display:block;}
+	
+	
+	
+ul{
+	display:block;}		
+li{
+	list-style:none;
+	display:block;}
+	
+.ovhidden{
+	overflow:hidden;}
+textarea{
+	padding-left:3px;
+	resize:none;
+	}
+	
+.hidden{
+	display:none;}	
+
+/* ~~~~~~~~~~~~~~~~~隔断导航~~~~~~~~~~~~~~~~~~~~~~~~~ */	
+.atext{
+	display:block;
+	overflow:visible;
+	padding-right:12px;
+	margin-right:12px;
+	border-right:1px solid #ccc;
+	font-size:12px;
+	height:11px;
+	line-height:12px;
+	margin-top:3px;
+	color:#666;}	
+.atextlast{
+	color:#666;
+	font-size:12px;
+	display:block;	
+	}	
+.atext01>a{
+	
+	display:block;
+	overflow:visible;
+	padding-right:12px;
+	margin-right:12px;
+	border-right:1px solid #ccc;
+	font-size:12px;
+	height:11px;
+	line-height:12px;
+	margin-top:3px;
+	color:#666;}
+.atext01>a:last-child{
+	
+	color:#666;
+	font-size:12px;
+	display:block;
+	border-right:0;
+	padding-right:0;
+	margin-right:0;
+	height:14px;}	
+/* ~~~~~~~~~~~~~~~~~~~body font~~~~~~~~~~~~~~~~~~~~~ */	
+
+body{
+	font-family:"微软雅黑";
+	font-size:12px;}
+/*~~~~~~~~~~~~~~~~~~~~base positon~~~~~~~~~~~~~~~~*/
+.clear {
+	clear:both;}
+
+.container{
+	padding-left:;
+	padding-right:;
+	
+	width:95%;
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;	
+	}
+.container>*{
+	overflow:hidden;}
+		
+.container01{
+	padding-left:;
+	padding-right:;
+	
+	width:;
+	margin:0 auto;
+	position:relative;		
+	}
+.container01>*{
+	overflow:hidden;}		
+	
+	
+	
+.myright{
+	float:right;
+	position:relative;	
+	display:block;			
+	}
+
+	
+
+.myleft{	
+    float:left;
+	position:relative;
+	display:block;
+	}
+
+	
+.mid{
+	margin:0 auto;
+	text-align:center;
+	position:relative;	
+	}
+
+.inFLeft{
+	overflow:hidden;
+	display:block;}
+.inFLeft > *{
+                   display:block;
+                   float:left;
+	   overflow:hidden;
+                 }
+	   
+.inFRright{
+	float:right;
+	display:block;
+               }	   
+.inFRright > *{
+                      display:block;
+                      float:right;
+	      overflow:hidden;
+                     }
+
+.textright{
+	text-align:right;}
+.textcenter{
+	text-align:center;}	
+.textleft{
+	text-align:left;}
+
+/*~~~~~~~~~~~~~~~~~~容器推动~~~~~~~~~~~~~~~~~~~~~~*/
+.fixed {
+	position:fixed;
+                z-index:2;
+}
+/*~~~~~~~~~~~~~~~~~~基本边框样式~~~~~~~~~~~~~~~~~~~~~~*/
+.border {
+	border:1px solid #666;}
+.border-r {
+	border-right:1px solid #ccc;}
+.border-rno {
+	border-right:0;}		
+
+.borderfloat{
+	border: 2px dotted #42E8E5;
+	float:left;
+	}
+.innerboxshadow > *{
+	box-shadow:        0 0 10px #ccc;
+	-moz-box-shadow:   0 0 10px #ccc;
+	-ms-box-shadow:    0 0 10px #ccc;
+	-o-box-shadow:     0 0 10px #ccc;
+	-webkit-box-shadow:0 0 10px #ccc;
+	
+	}	
+
+
+
+/*~~~~~~~~~~~~~~~~~~容器宽度类~~~~~~~~~~~~~~~~~~~~~~~~~*/	
+
+ .width-12 {
+    width: 100%;
+  }
+  .width-11 {
+    width: 91.66666667%;
+  }
+  .width-10 {
+    width: 83.33333333%;
+  }
+  .width-9 {
+    width: 75%;
+  }
+  .width-8 {
+    width: 66.66666667%;
+  }
+  .width-7 {
+    width: 58.33333333%;
+  }
+  .width-6 {
+    width: 50%;
+  }
+  .width-5 {
+    width: 41.66666667%;
+  }
+  .width-4 {
+    width: 33.33333333%;
+  }
+  .width-3 {
+    width: 25%;
+  }
+  .width-2 {
+    width: 16.66666667%;
+  }
+  .width-1 {
+    width: 8.33333333%;
+  }
+  .width-0 {
+    width: 4.15%;
+  }
+ /*~~~~~~~~~~~~~~~~~~容器宽度类~100% 分成8份~~~~~~~~~~~~~~~~~~~~~~~*/
+.w8nobsp1{
+	 width:12.5%;}
+.w8nobsp2{
+	 width:25%;}
+.w8nobsp3{
+	 width:37.5%;}
+.w8nobsp4{
+	 width:50%;}
+.w8nobsp5{
+	 width:62.5%;}
+.w8nobsp6{
+	 width:75%;}
+.w8nobsp7{
+	 width:87.5%;}
+.w8nobsp8{
+	 width:100%;}	 	 	 	 	 	 	  
+	 
+ /*~~~~~~~~~~~~~~~~~~~~~容器高度~~~~~~~~~~~~~~~~~~~~~*/ 
+
+  .height-25 {
+    height: 25px;
+  }
+  .height-30 {
+    height: 20px;
+  }
+  .height-40 {
+    height: 40px;
+  }
+  .height-45 {
+    height: 45px;	
+  }
+  .height-140 {
+    height: 140px;
+  } 
+  .height-280 {
+    height: 280px;
+  }
+  .height-430 {
+    height: 430px;
+  }
+/*~~~~~~~~~~~~~~~~~~垂直方向上的位置~~~~~~~~~~~~~~~~~~~*/
+                                .vp-1{
+		top:10%;
+		position:relative;
+		}
+		.vp-2{
+		top:20%;
+		position:relative;
+		}
+		.vp-3{
+		top:30%;
+		position:relative;
+		}
+		.vp-4{
+		top:40%;
+		position:relative;
+		}
+		.vp-5{
+		top:50%;
+		position:relative;}
+
+		.vp-6{
+		top:100%;
+		position:relative;}
+
+		.vp-7{
+		top:150%;
+		position:relative;}
+
+		.vp-8{
+		top:200%;
+		position:relative;}
+
+
+/*~~~~~~~~~~~~~~~~~~~水平方向上的位置~~~~~~~~~~~~~~~~~~*/
+
+                                .hp-1{
+		left:10%;
+		position:relative;
+		}
+		.hp-2{
+		left:20%;
+		position:relative;
+		}
+		.hp-3{
+		left:30%;
+		position:relative;
+		}
+		.hp-4{
+		left:40%;
+		position:relative;
+		}
+		.hp-5{
+		left:50%;
+		position:relative;
+		}		
+
+
+
+/*~~~~~~~~~~~~~~~~~~第三种情排列况~~~~~~~~~~~~~~~~~~~~~~~~~*/	
+.rows-three > *{
+	float:left;
+	}
+.rows-three > div {
+	margin-right:0px;
+	margin-left:0px;
+	padding-left:1.2%;
+	padding-right:1.2%;
+	overflow:hidden;
+	}
+.rows-three > div:first-child {
+	padding-left:0px;}
+.rows-three > div:last-child {
+	padding-right:0px;}			
+
+
+/*~~~~~~~~~~~~~~~~~~~border-opacity~~~~~~~~~~~~~~~~~~*/
+
+.border-o {
+	border:1px solid rgba(150,0,150,0.00);}
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~position~~~~~~~~~~~~~~~~~~~~~~~*/	
+  
+.relative{
+	position:relative;
+	
+	}
+			  
+.absolute{
+	position:absolute;
+	
+	}
+.z-index{
+	z-index:-1;}	
+
+/*~~~~~~~~~~~~~~~inner left  inner right边距~~~~~~~~~~~~~~~~~~~~~~~~*/
+.inmarRight-1 > * {
+   margin-right:1%;
+}
+.inmarRight-2  > * {
+   margin-right:2%;
+}
+.inmarRight-3  > * {
+   margin-right:3%;
+}
+
+.inmarLeft-1  > * {
+   margin-left:1%;
+}
+.inmarLeft-2  > * {
+   margin-left:2%;
+}
+.inmarLeft-3  > * {
+   margin-left:3%;
+}
+/*~~~~~~~~~~~~~~~~~~上边距~~~~~~~~~~~~~~~~~~~*/
+.martop-10   {
+   margin-top:-10%;
+}
+.martop05   {
+   margin-top:0.5%;
+}
+.martop07   {
+   margin-top:0.7%;
+}
+.martop1   {
+   margin-top:1%;
+}
+.martop2   {
+   margin-top:2%;
+}
+.martop3   {
+   margin-top:3%;
+}
+.martop5   {
+   margin-top:5%;
+}
+.martop10  {
+   margin-top:10%;
+}
+.martop15  {
+   margin-top:15%;
+}
+.martop20  {
+   margin-top:20%;
+}
+.martop25 {
+   margin-top:25%;
+}
+.martop30  {
+   margin-top:30%;
+}
+.martop35  {
+   margin-top:35%;
+}
+.martop40  {
+   margin-top:40%;
+}
+.martop45  {
+   margin-top:45%;
+}
+.martop50  {
+   margin-top:50%;
+}
+
+
+
+
+
+.marright1   {
+   margin-right:1%;
+}
+.marright2   {
+   margin-right:2%;
+}
+.marright3   {
+   margin-right:3%;
+}
+
+
+.marbottom1{
+	margin-bottom:1%;}
+.marbottom2{
+	margin-bottom:2%;}		
+.marbottom3{
+	margin-bottom:3%;}
+.marbottom4{
+	margin-bottom:4%;}	
+
+.marleft1{
+            margin-left:1%;}
+.marleft2{
+            margin-left:2%;}
+.marleft3{
+            margin-left:3%;}
+.marleft10{
+            margin-left:10%;}
+.marleft20{
+            margin-left:20%;}						
+
+/*~~~~~~background color~~~~~~ */
+                 .color-bg-zi{
+	   background-color:#533b77;}  
+.incolor-bg-zi>*{
+	   background-color:#533b77;}
+
+	 .color-bg-green{
+	   background-color:#85c821;} 
+.incolor-bg-green>*{
+	   background-color:#85c821;}
+
+	 .color-bg-greenc{
+	   background-color:#00ba6b;}
+.incolor-bg-greenc>*{
+	   background-color:#00ba6b;} 
+
+	 .color-bg-fh{
+	   background-color:#e15d59;} 
+.incolor-bg-fh>*{
+	   background-color:#e15d59;}
+
+	 .color-bg-fblue{
+	   background-color:#3b9ba7;} 
+.incolor-bg-fblue>*{
+	   background-color:#3b9ba7;}
+
+                 .color-bg-huiblue{
+	   background-color:#171e26;}
+.incolor-bg-huiblue>*{
+	   background-color:#171e26;} 
+
+	 .color-bg-hui{
+	   background-color:#4b6580;} 
+.incolor-bg-hui>*{
+	   background-color:#4b6580;}
+     
+	 .color-bg-hui-1{
+		 background-color:#ccc;}
+/*~~~~~~background color~~~~~~ *//*~~~~~~background color~~~~~~ *//*~~~~~~background color~~~~~~ */
+/*~~~~~~background color~~~~~~ *//*~~~~~~background color~~~~~~ *//*~~~~~~background color~~~~~~ */
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/	
+
+.rows02 {	
+	float:left;
+	display:block;		
+	}			
+
+.rows02 > *{
+	display:block;
+	float:left;	
+	/*overflow:hidden;*/
+                }
+
+
+.rows01 {
+	/*overflow:hidden;*/
+	}
+.rows01 > *{
+	display:block;
+	float:left;	
+	/*overflow:hidden;*/
+	}	
+	
+/*~~~~~~~~~~rows count~~~~~~~~~~~~~~~~~~*/	
+	
+.rows-count-2-gap-0{
+	width:100%;
+	}
+.rows-count-2-gap-0 > * {
+	width:50%;
+	margin-right:0;
+	}
+.rows-count-2-gap-3{
+	width:103%;}
+.rows-count-2-gap-3 > * {
+	width:47%;
+	margin-right:3%;}
+
+.rows-count-3-gap-0{
+	width:100.05%;}
+.rows-count-3-gap-0 > * {
+	width:33.3333%;
+	margin-right:0;}	
+.rows-count-3-gap-3{
+	width:103.1%;}
+.rows-count-3-gap-3 > * {
+	width:30.3333%;
+	margin-right:3%;}
+	
+.rows-count-4-gap-0{
+	width:100%;}
+.rows-count-4-gap-0 > * {
+	width:25%;
+	}
+.rows-count-4-gap-2{
+	width:102.02%;}
+.rows-count-4-gap-2 > * {
+	width:23%;
+	margin-right:2%;}	
+
+.rows-count-5-gap-0{
+	width:100%;}
+.rows-count-5-gap-0 > * {
+	width:20%;
+	}
+.rows-count-5-gap-2{
+	width:102.1%;}
+.rows-count-5-gap-2 > * {
+	width:18%;
+	margin-right:2%;}	
+
+.rows-count-6-gap-0{
+	width:100.1%;}
+.rows-count-6-gap-0 > * {
+	width:16.6667%;
+	}
+.rows-count-6-gap-2{
+	width:102.1%;}
+.rows-count-6-gap-2 > * {
+	width:14.6667%;
+	margin-right:2%;}	
+
+.rows-count-7-gap-0{
+	width:100.1%;}
+.rows-count-7-gap-0 > * {
+	width:14.2857%;
+	}
+.rows-count-7-gap-2{
+	width:102.1%;}
+.rows-count-7-gap-2 > * {
+	width:12.2857%;
+	margin-right:2%;}	
+
+.rows-count-8-gap-0{
+	width:100%;}
+.rows-count-8-gap-0 > * {
+	width:12.5%;
+	}
+.rows-count-8-gap-1{
+	width:101%;}
+.rows-count-8-gap-1 > * {
+	width:11.5%;
+	margin-right:1%;}
+		
+.rows-count-8-gap-2{
+	width:102%;}
+.rows-count-8-gap-2 > * {
+	width:10.5%;
+	margin-right:2%;}
+	
+.rows-count-9-gap-0{
+	width:100.1%;}
+.rows-count-9-gap-0 > * {
+	width:11.1111%;
+	}
+.rows-count-9-gap-1{
+	width:101.1%;}
+.rows-count-9-gap-1 > * {
+	width:10.1111%;
+	margin-right:1%;}	
+
+.rows-count-10-gap-0{
+	width:100%;}
+.rows-count-10-gap-0 > * {
+	width:10%;
+	}
+.rows-count-10-gap-1{
+	width:101%;}
+.rows-count-10-gap-1 > * {
+	width:9%;
+	margin-right:1%;}
+.rows-count-10-gap-3{
+	width:103%;}
+.rows-count-10-gap-3 > * {
+	width:7%;
+	margin-right:3%;}
+
+.rows-count-11-gap-0{
+	width:100%;}
+.rows-count-11-gap-0 > * {
+	width:9.0909%;
+	}
+.rows-count-11-gap-1{
+	width:101.1%;}
+.rows-count-11-gap-1 > * {
+	width:8.0909%;
+	margin-right:1%;}	
+	
+.rows-count-12-gap-0{
+	width:100%;}
+.rows-count-12-gap-0 > * {
+	width:8.3333%;
+	}
+.rows-count-12-gap-1{
+	width:101.1%;}
+.rows-count-12-gap-1 > * {
+	width:7.3333%;
+	margin-right:1%;}
+
+.rows-count-12-gap-3{
+	width:103.1%;}
+.rows-count-12-gap-3 > * {
+	width:5.3333%;
+	margin-right:3%;}		
+	
+/*~~~~~~~~~~带边距 不带边距的块~~~~~~~~~~~~~~~~~~~~*/
+.w12haveb2Sp1{
+	width:6.3333%;
+	margin-right:2%;}
+.w12haveb2Sp2{
+	width:14.6666%;
+	margin-right:2%;}
+.w12haveb2Sp3{
+	width:22.9999%;
+	margin-right:2%;}
+.w12haveb2Sp4{
+	width:31.3332%;
+	margin-right:2%;}
+.w12haveb2Sp5{
+	width:39.6332%;
+	margin-right:2%;}
+.w12haveb2Sp6{
+	width:47.9665%;
+	margin-right:2%;}
+.w12haveb2Sp7{
+	width:56.2998%;
+	margin-right:2%;}
+.w12haveb2Sp8{
+	width:64.6331%;
+	margin-right:2%;}
+.w12haveb2Sp9{
+	width:72.9664%;
+	margin-right:2%;}
+.w12haveb2Sp10{
+	width:81.2997%;
+	margin-right:2%;}
+.w12haveb2Sp11{
+	width:89.633%;
+	margin-right:2%;}
+
+
+
+.w12haveb3Sp1{
+	width:5.3333%;
+	margin-right:3%;}
+.w12haveb3Sp2{
+	width:13.6666%;
+	margin-right:3%;}
+.w12haveb3Sp3{
+	width:21.9999%;
+	margin-right:3%;}
+.w12haveb3Sp4{
+	width:30.3332%;
+	margin-right:3%;}
+.w12haveb3Sp5{
+	width:38.6332%;
+	margin-right:3%;}
+.w12haveb3Sp6{
+	width:46.9665%;
+	margin-right:3%;}
+.w12haveb3Sp7{
+	width:55.2998%;
+	margin-right:3%;}
+
+.w12haveb3Sp8{
+	width:63.6331%;
+	margin-right:3%;}
+.w12haveb3Sp8-1{
+	width:62.6331%;
+	margin-right:4%;}	
+.w12haveb3Sp9{
+	width:71.9664%;
+	margin-right:3%;}
+.w12haveb3Sp10{
+	width:80.2997%;
+	margin-right:3%;}
+.w12haveb3Sp11{
+	width:88.633%;
+	margin-right:3%;}
+					
+	
+	
+	
+.w12nobSp1{
+	width:8.3333%;}
+.w12nobSp2{
+	width:16.6666%;}
+.w12nobSp3{
+	width:24.9999%;}
+.w12nobSp4{
+	width:33.33339%;}
+.w12nobSp5{
+	width:41.6332%;}
+.w12nobSp6{
+	width:49.9665%;}
+.w12nobSp7{
+	width:58.2998%;}
+.w12nobSp8{
+	width:66.66667%;}
+.w12nobSp9{
+	width:74.9664%;}
+.w12nobSp10{
+	width:83.2997%;}
+.w12nobSp11{
+	width:91.633%;}
+.w12nobSp12{
+	width:100%;}		
+
+
+
+
+.w10havebSp1{
+	width:7%;
+	margin-right:3%;}
+.w10havebSp2{
+	width:17%;
+	margin-right:3%;}
+.w10havebSp3{
+	width:27%;
+	margin-right:3%;}
+.w10havebSp4{
+	width:37%;
+	margin-right:3%;}
+.w10havebSp5{
+	width:47%;
+	margin-right:3%;}
+.w10havebSp6{
+	width:57%;
+	margin-right:3%;}
+.w10havebSp7{
+	width:67%;
+	margin-right:3%;}
+.w10havebSp8{
+	width:77%;
+	margin-right:3%;}
+.w10havebSp9{
+	width:87%;
+	margin-right:3%;}
+					
+	
+	
+	
+.w10nobSp1{
+	width:10%;}
+.w10nobSp2{
+	width:20%;}
+.w10nobSp3{
+	width:30%;}
+.w10nobSp4{
+	width:40%;}
+.w10nobSp5{
+	width:50%;}
+.w10nobSp6{
+	width:60%;}
+.w10nobSp7{
+	width:70%;}
+.w10nobSp8{
+	width:80%;}
+.w10nobSp9{
+	width:90%;}
+.w10nobSp10{
+	width:100%;}	
+					
+
+
+/*~~~~~~~~~~rows height~~~~~~~~~~~~~~~~~~*/
+.rows-height-in > * {
+	height:100%;
+	}
+.rows-height-0 > * {
+	height:20px;
+	line-height:20px;}
+.rows-height-1 > * {
+	height:30px;
+	line-height:30px;}
+.rows-height-2 > * {
+	height:60px;}	
+.rows-height-3 > * {
+	height:90px;}	
+	
+/*~~~~~~~~~~rows bottom~~~~~~~~~~~~~~~~~~*/	
+.rowsMbottom-1{
+	margin-bottom:-1%;}	
+.rowsMbottom-1 > *{
+	margin-bottom:1%;}
+		
+.rowsMbottom-2{
+	margin-bottom:-2%;}	
+.rowsMbottom-2 > *{
+	margin-bottom:2%;}
+
+.rowsMbottom-3{
+	margin-bottom:-3%;}	
+.rowsMbottom-3 > *{
+	margin-bottom:3%;}
+	
+.rowsMbottom-4{
+	margin-bottom:-4%;}	
+.rowsMbottom-4 > *{
+	margin-bottom:4%;}
+
+	
+	
+/*~~~~~~~~~~container padding~~~~~~~~~~~~~~~~~~*/
+.padding-1 {
+	padding:10px;}	
+.padding-2 {
+	padding:20px;}
+.padding-3 {
+	padding:30px;}	
+/*~~~~~~~~~~~百分比宽度~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.widthB23{
+	width:23%;}	
+		
+									
+/*~~~~~~~~~~~~~font size~~~~~~~~~~~~~~~~~~~~~~*/
+.fontsize-12{
+	font-size:12px;}
+.fontsize-14{
+	font-size:14px;}	
+.fontsize-16{
+	font-size:16px;}
+.fontsize-18{
+	font-size:18px;}	
+/*~~~~~~~~~~~~~font color~~~~~~~~~~~~~~~~~~~~~~*/	
+.fontcolor-hui{
+	color:#666;}
+	
+
+	
+
+
+
+
