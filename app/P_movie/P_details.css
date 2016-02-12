@@ -1,0 +1,24 @@
+#details{
+	color:#555;
+	width:80%;
+	overflow:hidden;
+	margin:30px auto;
+	background-color:;
+	position:relative;}
+#details>h1{
+	font-size:30px;}
+#details>p{
+	margin-bottom:10px;}	
+#details>div>embed{
+	background-color: #eee;
+	border:1px solid #ccc;}	
+#details>div>ul{
+	background-color:;
+	}	
+#details>div>ul.width-1{
+	text-align:right;
+	font-weight:bold;
+}	
+#details>div>ul.width-3{
+	padding-left:20px;
+}

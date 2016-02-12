@@ -1,0 +1,21 @@
+#div01{
+	width:300px;
+	overflow:auto;
+	background-color: #ccc;
+	margin:0 auto;
+	padding:10px;}
+#div01>a{
+	float:left;
+	width:30%;
+	height:100%;
+	background-color: #eee;
+	margin-right:3.3%;
+	margin-bottom:10px;}	
+#div01>a>li:nth-child(1){
+	color:green;
+	text-align:center;}
+#div01>a>li:nth-child(2){
+	text-align:center;
+	background-color: #fff;
+	height:65px;}	
+		

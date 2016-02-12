@@ -1,0 +1,35 @@
+#movie{
+	color:#555;
+	width:80%;
+	overflow:hidden;
+	margin:30px auto;
+	background-color: #eee;
+	position:relative;}
+#movie>h1{
+	font-size:30px;}
+	
+#movie>ul{
+	margin-top:20px;}	
+#movie>ul>li{
+	border:1px solid #ddd;}	
+#movie>ul>li>img{
+	width:100%;
+	height:180px;}
+#movie>ul>li>h3{
+	padding-left:10px;
+	height:25px;
+	font-size:15px;
+	margin-top:5px;}
+#movie>ul>li>a{
+	width:80px;
+	height:25px;
+	border:1px solid #8AA0E8;
+	border-radius:5px;
+	margin-left:10px;
+	margin-bottom:10px;
+	background-color: #154C7F;
+	color:#fff;
+	text-align:center;
+	font-size:11px;
+	line-height:23px;
+	}			
