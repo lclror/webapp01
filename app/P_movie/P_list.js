@@ -23,7 +23,7 @@ P_list.STATE={
 P_list.prototype.main=function(){var state=this.opts; var $this=this	
 //~~~~~~~~~~~~~~~~~~~~~~
 //$("#list h1").click(function(e) {
-	$.get('/ajax/movie/list',{},function(result){
+/*	$.get('/ajax/movie/list',{},function(result){
 		var tr=''
 		for(var i in result){
 			var title='<td>'+result[i].title+'</td>'
@@ -33,7 +33,7 @@ P_list.prototype.main=function(){var state=this.opts; var $this=this
 			
 			var id=result[i]._id
 			var look='<td><a href="/movie/details/'+id+'">查看</a></td>'
-			var update='<td><a href="/movie/adminIn/'+id+'">修改</a></td>'
+			var update='<td><a href="/movie/admin/save/'+id+'">修改</a></td>'
 			var button='<td><button>删除</button</td>'
 			tr+='<tr>'+title+director+country+year+look+update+button+'</tr>'
 		}	
@@ -52,9 +52,19 @@ P_list.prototype.main=function(){var state=this.opts; var $this=this
 		},'json')
 		});
 	})
-//});
+*///});
 
-
+		$("#list>table>tbody>tr>td>button").click(function(e) {
+			var $td1=$(this).parent('td').siblings('td').eq(0)
+			var title=$td1.text()
+			//alert(title)
+			$.get('/ajax/movie/list/delete',{title:title},function(result){
+				if(result[0].status=='success'){
+					alert('success')
+					$td1.parent().remove()
+				}	
+			},'json')
+		});
 
 //~~~~~~~~~~~~~~~~~~~~~~
 }

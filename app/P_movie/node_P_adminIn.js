@@ -7,9 +7,9 @@ var html='\
 <head>\
 <meta charset="utf-8">\
 <title>无标题文档</title>\
-<link rel="stylesheet" href="../../lib/xxxbase.css">\
-<link rel="stylesheet" href="../../P_movie/P_adminIn.css">\
-<script src="../../lib/jquery.js"></script>\
+<link rel="stylesheet" href="../../../../lib/xxxbase.css">\
+<link rel="stylesheet" href="../../../../P_movie/P_adminIn.css">\
+<script src="../../../../lib/jquery.js"></script>\
 </head>\
 <body>\
 <section id="adminIn">\
@@ -29,12 +29,13 @@ var html='\
 	<nav></nav>\
 </section>\
 </body>\
-<script src="../../lib/require.js" data-main="../../P_movie/P_adminIn.js"></script>\
+<script src="../../../../lib/require.js" data-main="../../../../P_movie/P_adminIn.js"></script>\
 </html>\
 '
 var $=cheerio.load(html,{decodeEntities:false})
+
 function ajax(app1){
-	app1.post('/ajax/movie/adminIn',function(req,res){
+	app1.post('/ajax/movie/admin/save',function(req,res){
 		var title=req.body.title
 		var posters=req.body.posters
 		var director=req.body.director
@@ -82,12 +83,14 @@ function ajax(app1){
 function routerall(app1){
 	ajax(app1)
 //修改页路由以及配置.
-	app1.get('/movie/adminIn',function(req,res){
+	
+	
+	app1.get('/movie/admin01/save',function(req,res){
 		res.send(html)	
 	})
 	
 //修改页	带参数路由
-	app1.get('/movie/adminIn/:id',function(req,res){
+	app1.get('/movie/admin01/save/:id',function(req,res){
 		var index=parseInt(req.params.id)
 		coll_movie.find({_id:index}).toArray(function(err,result){
 		var 	title=result[0].title,

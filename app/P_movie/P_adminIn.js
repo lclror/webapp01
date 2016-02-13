@@ -35,7 +35,7 @@ $("#adminIn button").click(function(e) {
 	var descrtion=$("#adminIn>form>textarea").val()
 	var nav=$("#adminIn>nav").text()
 	
-	$.post('/ajax/movie/adminIn',
+	$.post('/ajax/movie/admin/save',
 		{title:title,
 		posters:posters,
 		director:director,
@@ -48,6 +48,7 @@ $("#adminIn button").click(function(e) {
 		},function(result){
 			alert(result[0].status)	
 			$("#adminIn>form>input").val(null)
+			$("#adminIn>form>textarea").val(null)
 			$("#adminIn>nav").text(null)
 		},'json'
 	)

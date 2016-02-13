@@ -40,28 +40,12 @@ app.use(morgan('combined'))*/
 //debug
 
 
-
-
 app.listen(3000,function(){console.log('running ')})
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 app.get('/',function(req,res){
 	console.log('index test')
 	res.send('hello world')
-	
 })
 
-var P_movie=require('./P_movie/node_P_movie')
-P_movie.routerall(app)
-
-var P_adminIn=require('./P_movie/node_P_adminIn')
-P_adminIn.routerall(app)
-
-
-
-var P_list=require('./P_movie/node_P_list')
-P_list.routerall(app)
-
-var P_details=require('./P_movie/node_P_details')
-P_details.routerall(app)
-
+var router_P_movie=require('./P_movie/router_P_movie')
+router_P_movie.routerall(app)

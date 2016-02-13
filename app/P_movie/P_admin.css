@@ -1,0 +1,22 @@
+#login{
+	overflow:auto;
+	width:400px;
+	margin:20px auto;
+	background-color: #ddd;
+	border:1px solid #ccc;
+	border-radius:10px;
+	padding:15px;
+	padding-top:5px;
+	}
+#login>h1{
+	padding-bottom:5px;
+	margin-left:37px;
+	color:#333;}	
+#login>form{
+	}	
+#login>form>input{
+	margin-left:10px;
+	margin-bottom:5px;}	
+#login>form>button{
+	margin-left:37px;}	
+	

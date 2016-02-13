@@ -897,6 +897,56 @@ body{
 .fontcolor-hui{
 	color:#666;}
 	
+/*去掉系统默认表单焦点样式*/
+input:focus{
+	outline:none;}	
+
+/*可调节框体样式*/
+.form-input{
+	width: 150px;
+	height: 30px;
+	border: 1px solid #8D8D8D;
+	line-height: 30px;
+	border-radius: 5px;
+	
+	padding-left: 4px;
+}
+.form-input:focus{
+	-webkit-box-shadow: 0px 0px 6px -1px #2AC3CB;
+	box-shadow: 0px 0px 6px -1px #2AC3CB;
+	border: 1px solid #138BFF;
+	}
+	
+/* ~~~~~~ 无背景按钮 宽高要加上 border 的数值 ~~~~~~*/
+.btn-opacity{
+	padding:0 15px;
+	height: 30px;
+	border: 1px solid #8D8D8D;
+	line-height: 28px;
+	border-radius: 5px;
+	text-align: center;
+	cursor:pointer;
+	}
+.btn-opacity:hover{
+	background-color:#8D8D8D;
+	color:#fff;	
+	}	
+
+/* ~~~~~~ 背景色-无边框-按钮 宽高要匹配上面按钮的总体 数值 ~~~~~~*/	
+.btn-bg{
+	width: 142px;
+	height: 32px;
+	border: 0px solid #8D8D8D;
+	line-height: 30px;
+	border-radius: 5px;
+	text-align: center;
+	cursor:pointer;
+	color:#fff;
+	}
+.btn-bg:hover{
+	background-color:#8D8D8D;	
+	}		
+	
 
 	
 

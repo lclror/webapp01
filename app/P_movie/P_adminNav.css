@@ -1,0 +1,21 @@
+#adminNav{
+	width:80%;
+	margin:10px auto;
+	}
+#adminNav>h1{
+	font-size:26px;
+	color:#555;}	
+#adminNav>.p1{
+	line-height:28px;
+	color:#4A4EF4;
+	margin-bottom:20px;}
+#adminNav>div{
+	clear:left;
+	}	
+#adminNav>div>a{
+	background-color: #128C7E;
+	width:190px;
+	margin-bottom:5px;}	
+#adminNav>div>a:hover{
+	background-color: #ccc;
+	}	

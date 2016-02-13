@@ -19,6 +19,8 @@ table{
 	border:1px solid green;}	
 table>thead>tr{
 	border:1px solid blue;}	*/
+table>tbody>tr:hover{
+	background-color: #fff;}	
 table>thead>tr>th{
 	border:1px solid #999;
 	text-align:left;
