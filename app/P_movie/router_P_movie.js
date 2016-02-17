@@ -10,6 +10,11 @@ var P_list=require('./node_P_list')
 
 function routerall(app){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+/* 不能阻止访问独立的静态文件
+app.get('/P_movie/node_P_list.js',function(req,res){
+	console.log('stop required')
+	res.redirect('/')	
+})*/
 
 P_movie.routerall(app)
 P_details.routerall(app)	

@@ -32,6 +32,9 @@ var html='\
 
 var $=cheerio.load(html,{decodeEntities: false})
 
+var G_islogin=require('./node_G_islogin')
+var G_isloginProcess=G_islogin.process($)
+
 /*function ajax1(app1){
 	app1.get('/ajax/movie/list',function(req,res){
 		coll_movie.find().limit(7).toArray(function(err,result){
@@ -44,6 +47,8 @@ var $=cheerio.load(html,{decodeEntities: false})
 		})	
 	})	
 }*/
+
+
 
 function ajax2(app1){
 	app1.get('/ajax/movie/list/delete',function(req,res){
@@ -61,7 +66,7 @@ function ajax2(app1){
 }
 
 function routerall(app1){
-	app1.get('/movie/admin01/list',function(req,res){
+	app1.get('/movie/admin01/list',G_isloginProcess,function(req,res){
 		coll_movie.find().limit(7).toArray(function(err,result){
 			var tr=''
 			for(var i in result){

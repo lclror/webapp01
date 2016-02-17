@@ -30,7 +30,7 @@ function routerall(app1){
 	app1.get('/movie/admin01/nav',function(req,res){
 		var admin=req.session.adminlogin	
 		if(admin){
-			$("#adminNav .p1 span").text(admin)	
+			$("#adminNav .p1 span").text(admin.username)	
 		}
 		html=$.html()
 		res.send(html)

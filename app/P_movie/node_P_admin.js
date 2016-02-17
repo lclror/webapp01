@@ -31,14 +31,14 @@ function ajax(app1){
 		var name=req.body.name	
 		var pass=req.body.pass
 		coll_admin.find({username:name,password:pass}).toArray(function(err,result){
-			console.log(result)
+			//console.log(result)
 			if(result[0]==null){
 				res.send([{status:'error'}])	
 			}else{
-				req.session.adminlogin=result[0].username
-				res.send([{status:'success',path:'http://localhost:3000/movie/admin01/nav'}])
+				req.session.adminlogin=result[0]
+				res.send([{status:'success',path:'http://localhost:3000/movie/admin01/nav'}]) //这句地址别的机器就无法访问了，因为不是本地.
 				console.log(req.session.adminlogin+' :is logined ')
-				//res.redirect('http://localhost:3000/movie/admin01/save')	 //由ajax发起的请求此方法无效			
+				//res.redirect('/movie/admin01/nav')	 //由ajax发起的请求此方法无效	
 			}	
 		})
 	})	
@@ -46,10 +46,18 @@ function ajax(app1){
 
 
 function routerall(app1){
+	
 	//此处是后台管理的阻拦中间件，没有登陆的session就无法进入管理页面
 	app1.use('/movie/admin01/*',function(req,res,next){
 		var admin=req.session.adminlogin
-		if(admin){next()}else{res.redirect('/movie/admin01')}		
+		if(admin){
+			/*var islogin='<p class="myleft p1">welcome : <span>'+admin+'</span></p>'
+			$("body h2").html(islogin)*/
+			next()
+		}else{
+			//$("body h2").html(null)
+			res.redirect('/movie/admin01')
+		}		
 	})
 	
 	app1.get('/movie/admin01',function(req,res){

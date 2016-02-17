@@ -34,6 +34,9 @@ var html='\
 '
 var $=cheerio.load(html,{decodeEntities:false})
 
+var G_islogin=require('./node_G_islogin')
+var G_isloginProcess=G_islogin.process($)
+
 function ajax(app1){
 	app1.post('/ajax/movie/admin/save',function(req,res){
 		var title=req.body.title
@@ -80,17 +83,20 @@ function ajax(app1){
 
 }
 
+
+
 function routerall(app1){
 	ajax(app1)
 //修改页路由以及配置.
 	
 	
-	app1.get('/movie/admin01/save',function(req,res){
-		res.send(html)	
+	app1.get('/movie/admin01/save',G_isloginProcess,function(req,res){
+		var html1=$.html()
+		res.send(html1)	
 	})
 	
 //修改页	带参数路由
-	app1.get('/movie/admin01/save/:id',function(req,res){
+	app1.get('/movie/admin01/save/:id',G_isloginProcess,function(req,res){
 		var index=parseInt(req.params.id)
 		coll_movie.find({_id:index}).toArray(function(err,result){
 		var 	title=result[0].title,
@@ -112,8 +118,8 @@ function routerall(app1){
 		$("#adminIn>form>textarea").val(descrtion)
 		$("#adminIn>nav").text(index) //这时把此电影的id 存入 nav容器中，因为index与id相同，所以这里为了快速就用了index 
 		//点提交时脚本就会把此值一并提交给ajax接口，然后ajax接口用此值来判断是否为更新.
-		var html=$.html()
-		res.send(html)	
+		var html2=$.html()
+		res.send(html2)	
 		})	
 	})
 	

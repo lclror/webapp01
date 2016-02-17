@@ -12,15 +12,21 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json())  
 app.use(bodyParser.urlencoded({ extended: true })) 
 
-//express-session
-var session = require('express-session')
-app.use(session({ resave: true,
-                  saveUninitialized: true,
-                  secret: 'uwotm8' }));
-
 //cookie-parser
 var cookie = require('cookie-parser');
 app.use(cookie())
+
+//express-session
+var session = require('express-session')
+//var MongoStore = require('connect-mongo')(session);
+app.use(session({ resave: true,
+                  saveUninitialized: true,
+                  secret: 'uwotm8' ,
+						/*store:new MongoStore({
+							url:'mongodb://localhost:27017/array',
+							collection:'session'	
+						})*/
+}));
 
 //cheerio
 var cheerio=require('cheerio')
@@ -39,12 +45,17 @@ app.use(morgan('combined'))*/
 
 //debug
 
+/*//初始话生产环境用
+if('development'===app.get('env')){
+	app.locals.pretty=true;	
+}*/
 
 app.listen(3000,function(){console.log('running ')})
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.get('/',function(req,res){
-	console.log('index test')
-	res.send('hello world')
+	var time=new Date()
+	console.log(time.toLocaleString())
+	res.send('<h1>hello world</h1>')
 })
 
 var router_P_movie=require('./P_movie/router_P_movie')
