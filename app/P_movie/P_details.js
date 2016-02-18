@@ -12,7 +12,7 @@
 function P_details(opts){
 this.html='';
 
-this.id='#xxx' 				
+this.id='#details' 				
 this.opts=$.extend({},P_details.STATE,opts)
 }
 
@@ -36,10 +36,9 @@ $("#comment>button").click(function(e) {
 			var content1='<p>'+content+'</p>'
 			var li='<li>'+img+form_user_id+content1+'</li>'
 			$("div#comment>ul.ul1").append(li)
+			$("#comment>textarea").val(null)
 		}
-	},'json').done(function(){
-		$("#comment>textarea").val(null)	
-	})
+	},'json')
 });
 //~~~~~~~~~~~~~~~~~~~~~~
 }

@@ -1,6 +1,9 @@
 var mongodb_array=require('../mongodb/mongodb_array')
 var coll_admin=mongodb_array.collection('admin')
 
+var coll_test01=mongodb_array.collection('test01')
+var coll_test02=mongodb_array.collection('test02')
+var mongoose = require('mongoose');
 var html='\
 <!doctype html>\
 <html>\
@@ -46,6 +49,40 @@ function ajax(app1){
 
 
 function routerall(app1){
+	app1.get('/join/test01/:value',function(req,res){
+		var value=req.params.value
+		coll_test01.save({name:value,age:30},function(err,result){
+			console.log(result.result)
+		})
+		res.send('<h1>mongodb dbref testing :'+value+'</h1>')	
+	})
+	
+	app1.get('/join/test02/:value',function(req,res){
+		var value=req.params.value
+		coll_test01.find({name:'kiti'}).toArray(function(err,result){
+			var id=result[0]._id	
+			console.log(id)
+			coll_test02.save({title:value,form:{$ref:'test01',$id:id}},function(err,result){
+				console.log(result.result)
+			})
+		})
+		
+		res.send('<h1>mongodb dbref testing :'+value+'</h1>')	
+	})
+	
+	app1.get('/join/test02fetch/fetch',function(req,res){
+		//var value=req.params.value
+		/*coll_test02.find({title:'nice!'}).toArray(function(err,result){
+			console.log(result)
+			var fet=result[0].form[0].mongodb.fetch()	
+			cosole.log(fet)
+		})*/
+		
+		coll_test02.find({title:'nice!'}).mongoose.populate('form','name').exec(function(err,result){
+			console.log(result)	
+		})
+		res.send('<h1>mongodb dbref testing :fetch</h1>')	
+	})
 	
 	//此处是后台管理的阻拦中间件，没有登陆的session就无法进入管理页面
 	app1.use('/movie/admin01/*',function(req,res,next){
