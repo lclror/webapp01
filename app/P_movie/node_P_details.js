@@ -1,5 +1,6 @@
 var mongodb_array=require('../mongodb/mongodb_array')
-var populate=require('../tools/node_populate')
+//var populate=require('../tools/node_populate')
+var populate=require('../tools/node_populate7')
 
 var coll_movie=mongodb_array.collection('movie')
 var coll_comment=mongodb_array.collection('comment')
@@ -78,42 +79,29 @@ function ajax_comment(app1){
 	})	
 }
 
-function populate1(coll_oneToN,query_oneToN,populate_key01,ref_coll01,callback){
-	coll_oneToN.find(query_oneToN).toArray(function(err,oneToN_result){
-		var populate_key01_allId=[]  //要填充字段的id收集到这里
-		for(var i in oneToN_result){
-			var ref_coll01_query_id=oneToN_result[i][populate_key01] //那个字段要填充就把哪个字段的id全部收集起来(通过遍历).
-			populate_key01_allId.push(ref_coll01_query_id) //id收集中
-		}
-		var coll01_query={_id:{$in:populate_key01_allId}}  //把收集到的id进行包含查询 前的格式化
-		ref_coll01.find(coll01_query).toArray(function(err,coll01_result){   //到 ref 的 集01中进行查询
-		
-			var coll01=[]
-			for(var i in populate_key01_allId){
-				var id_o=populate_key01_allId[i]
-				for(var j in coll01_result){
-					var coll01_Obj=coll01_result[j]
-					var  id_coll01=coll01_Obj._id
-					if(id_o==id_coll01){
-						coll01.push(coll01_Obj)	
-						oneToN_result[i][populate_key01]=coll01_Obj
-					}
-				}
-			}
-			callback(oneToN_result/*,coll01*/)
-		})
-	})
-}
 
 function routerall(app1){
-	app1.get('/movie/test01',function(req,res){
-		populate.populate2(coll_comment,{movie_id:3},'movie_id',coll_movie,'form_user_id',coll_admin,function(comment_res){
-			console.log('======================================')
-			console.log(comment_res)	
-			res.send('<h1>populate testing...</h1>')
-		})	
+/*	app1.get('/movie/test01',function(req,res){		
+		coll_comment.find({movie_id:3}).sort({time:1}).toArray(function(err,result){
+			var opt={
+				P_result:result,
+				key:['form_user_id','movie_id'],	
+				ref:[coll_admin,coll_movie],
+				//ref_query_key:[0,{title:null}],
+				coll_find:function(find){
+					find(0,function(){
+						find(1)	
+					})
+				}
+			}
+			populate.populateN(opt,function(comment_res){
+				console.log('======================================')
+				console.log(comment_res)
+				res.send('<h1>populate testing...</h1>')
+			})
+		})
 	})
-	
+*/	
 	app1.get('/movie/details/:id',function(req,res){
 		var index=parseInt(req.params.id)
 		//console.log(index)
@@ -132,11 +120,39 @@ function routerall(app1){
 			
 			$(".h1").text('movie '+'《'+result[0].title+'》')
 			$("title").text(result[0].title)
-			console.log('test')
 			//html=$.html()
 			//res.send(html)
-			//comment part test~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			populate1(coll_comment,{movie_id:index},'form_user_id',coll_admin,function(comment_res/*,admin_res*/){
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			coll_comment.find({movie_id:index}).sort({time:1}).toArray(function(err,result){
+				var opt={
+					P_result:result,
+					key:['form_user_id'],
+					ref:[coll_admin],
+					//ref_query_key:[0],
+					coll_find:function(find){
+						find(0)	
+					}	
+				}
+				populate.populateN(opt,function(comment_res){
+					console.log('======================================')
+					console.log(comment_res)
+					var ul=''
+					for(var i in comment_res){
+							var img='<img src="../../img/user/user.jpg"/>'
+							var form_user_id='<h4>'+comment_res[i].form_user_id.username+'</h4>'
+							var content='<p>'+comment_res[i].content+'</p>'
+							var li='<li>'+img+form_user_id+content+'</li>'
+							ul+=li
+					}
+					$("div#comment>span").text(index)
+					$("div#comment>ul.ul1").html(ul)
+					html=$.html()
+					res.send(html)	
+				})	
+			})
+			
+			//comment part test~未经过优化的版本，不会自动增加find的数量~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*			populate1(coll_comment,{movie_id:index},'form_user_id',coll_admin,function(comment_res,admin_res){
 				console.log(comment_res)
 				//console.log(admin_res) 
 				var ul=''
@@ -151,7 +167,7 @@ function routerall(app1){
 				$("div#comment>ul.ul1").html(ul)
 				html=$.html()
 				res.send(html)	
-			})
+			})*/
 			
 			//comment part~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			//没有任何填充，常规方法。
