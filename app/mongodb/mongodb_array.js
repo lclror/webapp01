@@ -1,10 +1,11 @@
 var mongoskin=require('mongoskin')
 
-var host = 'localhost',
+var userName = ''+':',
+    password = ''+'@', 
+	 host = 'localhost',
     port = '27017',
     dbName = 'array',
-    userName = ''+':',
-    password = ''+'@',
+    
     str = 'mongodb://' +host+':'+port+'/'+dbName;
 
 var options={native_parser: true}	 

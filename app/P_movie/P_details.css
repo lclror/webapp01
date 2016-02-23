@@ -24,16 +24,27 @@
 }
 
 #comment{
-	width:720px;}
+	width:510px;}
 #comment>h1{
-	margin:10px 0;}	
+	margin:10px 0;}
+#comment>span{
+	display:none;}
+#comment>ul *>h4>span:hover{
+	cursor:pointer;
+	color:red;}		
 #comment>ul>li{
 	margin-bottom:5px;
 	overflow:auto;
 	clear:both;
 	}
-#comment>span{
-	display:none;}
+#comment>ul>li:hover{
+	background-color: #eee;}	
+#comment>ul>li:hover>a{
+	display:block;}
+#comment>ul>li>div:hover{
+	background-color: #ccc;}	
+#comment>ul>li>div:hover>a{
+	display:block;}		
 #comment>ul>li>img{
 	width:35px;
 	border:1px solid #555;
@@ -41,11 +52,43 @@
 	margin-right:5px;
 }
 #comment>ul>li>p{
-	width:670px;
+	width:430px;
 	background-color:;
 	float:left;}	
+#comment>ul>li>a{
+	position:absolute;
+	left:477px;
+	color:#2B49A6;
+	}
+#comment>ul>li a{
+	display:none;}	
+		
+#comment>ul>li>div{
+	padding-left:35px;
+	overflow:auto;
+	clear:both;
+	}
+#comment>ul>li>div>img{
+	width:35px;
+	border:1px solid #555;
+	float:left;
+	margin-right:5px;
+}
+#comment>ul>li>div>p{
+	width:430px;
+	background-color:;
+	float:left;}
+#comment>ul>li>div>a{
+	position:absolute;
+	left:477px;
+	color:#2B49A6;
+	}	
+	
+	
 #comment>textarea{
-	border-radius:;}	
+	width:100%;
+	}	
+	
 #comment>button{
 	background-color: #2B49A6;
 	color:#fff;}	
