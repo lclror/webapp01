@@ -1,7 +1,8 @@
 
 
 var P_movie=require('./node_P_movie')
-var P_details=require('./node_P_details')
+//var P_details=require('./node_P_details')
+var P_details=require('./node_P_details2')
 
 var P_admin=require('./node_P_admin')
 var P_adminNav=require('./node_P_adminNav')

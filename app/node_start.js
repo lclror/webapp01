@@ -1,7 +1,8 @@
 //express
 var express=require('express')
 var app=express()
-app.use(express.static('./'))
+var path=require('path')
+app.use(express.static( path.join(__dirname) ))
 
 //serve-favicon 
 var favicon=require('serve-favicon')
@@ -50,7 +51,7 @@ if('development'===app.get('env')){
 	app.locals.pretty=true;	
 }*/
 
-app.listen(3000,function(){console.log('running ')})
+app.listen(80,function(){console.log('running ')})
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.get('/',function(req,res){
 	var time=new Date()

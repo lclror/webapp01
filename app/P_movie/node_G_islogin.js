@@ -7,11 +7,10 @@ function process($){
 	var router1=function(req,res,next){
 		var admin=req.session.adminlogin
 		if(admin){
-			var islogin='<p class="myleft p1">科幻类 / welcome : <span>'+admin.username+'</span></p><br/>'
-			$("body p").html(islogin)	
-		}/*else{
-			$("body p.p2").remove()	
-		}*/
+			var islogin=' welcome : <span>'+admin.username+'</span>'
+			$("body h3.islogin").html(islogin)	
+			//html111=$.html()
+		}
 		next()
 	}	
 	return router1

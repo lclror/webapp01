@@ -39,7 +39,7 @@ function ajax(app1){
 				res.send([{status:'error'}])	
 			}else{
 				req.session.adminlogin=result[0]
-				res.send([{status:'success',path:'http://localhost:3000/movie/admin01/nav'}]) //这句地址别的机器就无法访问了，因为不是本地.
+				res.send([{status:'success',path:'http://192.168.36.117/movie/admin01/nav'}]) //这句地址别的机器就无法访问了，因为不是本地.
 				console.log(req.session.adminlogin+' :is logined ')
 				//res.redirect('/movie/admin01/nav')	 //由ajax发起的请求此方法无效	
 			}	

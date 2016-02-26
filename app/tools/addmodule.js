@@ -13,12 +13,12 @@ $.fn.addModule=function(insetWhereDOMobject,modelName,modelFile,modelFileOpts){
 		setTimeout(function(){
 		modelName.main()   
 		modelName.render()  
-		},5)	
+		},9)	
 	}else{
 		setTimeout(function(){
 		modelName.main()   
 		modelName.render()  
-		},5)
+		},9)
 	}
 }
 

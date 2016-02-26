@@ -10,11 +10,25 @@
 <body>
 <section id="movie">
 	<h1>MOVIE 首页</h1>
-	<p>科幻类</p>
+		<nav class="inFLeft inmarRight-2">
+		<a href="/movie/科幻" class="selected">科幻</a>
+		<a href="/movie/喜剧">喜剧</a>
+		<a href="/movie/惊悚">惊悚</a>
+		<a href="/movie/剧情">剧情</a>
+		<a href="/movie/励志">励志</a>
+		<a href="/movie/武侠">武侠</a>
+		<a href="/movie/动画">动画</a>
+	</nav>
 	<ul class="rows-count-7-gap-2 inFLeft rowsMbottom-2">
 		<li><img src="../P_movie/img/yr.jpg" alt=""><h3>蚁人</h3><a>观看预告片</a></li>
 	</ul>
+	<section id="insert_pageing">
+		<div id="pageing">
+			<a href="#" class="current">1</a><a href="#">2</a><a href="#">3</a>
+		</div>
+	</section>
 </section>
+
 </body>
-<script src="../lib/require.js" data-main=""></script>
+<script src="../lib/require.js" data-main="../G_pageing/G_pageing.js"></script>
 </html>

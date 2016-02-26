@@ -1,9 +1,8 @@
 var mongoskin=require('mongoskin')
 var ObjectId=mongoskin.ObjectId
-
-var mongodb_array=require('../mongodb/mongodb_array')
-//var populate=require('../tools/node_populate')
 var populate=require('../tools/node_populate7')
+var mongodb_array=require('../mongodb/mongodb_array')
+
 
 var coll_movie=mongodb_array.collection('movie')
 var coll_comment=mongodb_array.collection('comment')
@@ -39,16 +38,18 @@ var html='\
 		</ul>\
 		<ul class="width-3"></ul>\
 	</div>\
-	<div id="comment">\
-		<span>1</span>\
-		<h1>评论区</h1>\
-		<ul class="ul1">\
-			<li><img src="../../img/user/user.jpg"/><h4>user01</h4><p>content!</p></li>\
-			<li><img src="../../img/user/user.jpg"/><h4>user01</h4><p>nice!</p></li>\
-		</ul>\
-		<textarea id="textarea"  cols="60" rows="4"></textarea><br/>\
-		<button class="btn-opacity">submit</button>\
-	</div>\
+	<section id="insert_comment">\
+		<div id="comment">\
+			<span>1</span>\
+			<h1>评论区</h1>\
+			<ul class="ul1">\
+				<li><img src="../../img/user/user.jpg"/><h4>user01</h4><p>content!</p></li>\
+				<li><img src="../../img/user/user.jpg"/><h4>user01</h4><p>nice!</p></li>\
+			</ul>\
+			<textarea id="textarea"  cols="60" rows="4"></textarea><br/>\
+			<button class="btn-opacity">submit</button>\
+		</div>\
+	</section>\
 </section>\
 </body>\
 <script src="../../lib/require.js" data-main="../../P_movie/P_details.js"></script>\

@@ -1,3 +1,5 @@
+@import '../G_pageing/G_pageing.css';
+
 #list{
 	color:#555;
 	width:80%;
@@ -7,6 +9,8 @@
 	position:relative;}
 #list>h1{
 	font-size:30px;}
+#list>nav>a.selected{
+	color:blue;}	
 #list>p{
 	margin-bottom:10px;}	
 	

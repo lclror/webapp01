@@ -17,11 +17,15 @@ var tag_obj={
     console.log('=======>', error, result);
 });*/
 
-coll_test01.findAndModify(
+/*coll_test01.findAndModify(
 	{_id:ObjectId('56ca7fd08d0b05673bc28e95'),'tag.name':'steve'},
 	[],
 	{$unset:{'tag.$.age':30}},
 	//{new:true,upsert:true},
 	function(error,result){
     console.log('=======>', error, result);
-});
+});*/
+
+coll_test01.find().count(function(err,result){
+	console.log(typeof result)	
+})

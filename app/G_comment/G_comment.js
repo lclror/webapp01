@@ -2,41 +2,70 @@
 	if ( typeof define === "function" && define.amd ) {
 		requirejs.config({
 			paths:{				 
-				add:'../tools/addmodule',
-				G_comment:'../G_comment/G_comment',
+				add:'../tools/addmodule' 
 			}	
 		});		
-		define( ["add",'G_comment',], factory );		
+		define( ["add",], factory );		
 	} else {factory( jQuery )}
-}(function( add,G_comment ) {  //有几个模块就要有几个占位符，即便那个模块没有返回对象。否则系统匹配不上位置。
+}(function(  ) { 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
-function P_details(opts){
-this.html='';
+function G_comment(opts){
+this.html='\
+	<div id="comment">\
+		<span>1</span>\
+		<h1>评论区</h1>\
+		<ul class="ul1">\
+			<li>\
+				<img src="../img/user/user.jpg"/>\
+				<h4>user01 <span> 删除</span></h4>\
+				<p>content! content! content!</p>\
+				<a href="#textarea" name="oid">回复</a>\
+				<div>\
+					<img src="../img/user/user.jpg"/>\
+					<h4>user01 <span> 删除</span></h4>\
+					<p> <span>回复-user2 : </span>content! </p>\
+					<a href="#textarea" name="oid">回复</a>\
+				</div>\
+				<div>\
+					<img src="../img/user/user.jpg"/>\
+					<h4>user01</h4>\
+					<p>content! content!</p>\
+					<a href="#textarea" name="oid">回复</a>\
+				</div>\
+			</li>\
+			<li><img src="../img/user/user.jpg"/><h4>user01</h4><p>nice!</p><a href="#textarea" name="oid">回复</a></li>\
+		</ul>\
+		<textarea id="textarea"  cols="60" rows="4"></textarea><br/>\
+		<button class="btn-opacity" type="button">submit</button>\
+	</div>\
+';
 
-this.id='#details' 				
-this.opts=$.extend({},P_details.STATE,opts)
+this.id='#comment' 				
+this.opts=$.extend({},G_comment.STATE,opts)
 }
 
-P_details.STATE={
+G_comment.STATE={
 	//state : 'off',
-	/*paths:{
+	paths:{
 		ajaxURL1:'/ajax/movie/comment',
 		ajaxURL2:'/ajax/movie/comment/del',
-	}*/
+	}
 }
 
-P_details.prototype.main=function(){var state=this.opts; var $this=this	
-//~~~~~~~~~~~~~~~~~~~~~~
-/*var comment_id=0
+G_comment.prototype.main=function(){var state=this.opts; var $this=this	
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~reply button part~~~~~~~~~~~~~~~~~~
+var comment_id=0
 var to=null
 var $li=''
 $("#comment>ul>li a").click(function(e) {
 	comment_id=$(this).attr("name")
 	to=$(this).siblings("h4").text()
 	$li=$(this).parents("li")
-	
-	alert(comment_id+' , '+to)
+	//alert(comment_id+' , '+to)
 });
+
+//~~~~comment submit part~~~~~~~~~~~~~
 $("#comment>button").click(function(e) {
 	var movie_id=$("#comment>span").text()
 	var content=$("#comment>textarea").val()
@@ -82,29 +111,19 @@ $("#comment>ul *>h4>span").click(function(e) {
 	},'json')
 });
 
-*/
-
 
 //~~~~~~~~~~~~~~~~~~~~~~
 }
 
 
-P_details.prototype.render=function(){var state=this.opts
+G_comment.prototype.render=function(){var state=this.opts
 //~~~~~~~~~~~~~~~~~~~~~~
 
 //~~~~~~~~~~~~~~~~~~~~~~
 }
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
-
-$.fn.addModule($('body'),'p_details',P_details) //不要忘了运行自身代码
-//return P_details;
-//~~~~~~add require modules~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*var comment_ajax_opts={
-	paths:{
-		ajaxURL1:'/ajax/movie/comment',
-		ajaxURL2:'/ajax/movie/comment/del',	
-	}	
-}*/
-$.fn.addModule($('section#insert_comment'),'g_comment',G_comment/*,comment_ajax_opts*/) 
+//$.fn.addModule($('body'),'G_comment',G_comment) 
+return G_comment;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }))

@@ -3,8 +3,11 @@
 	width:500px;
 	overflow:auto;
 	margin:30px 5%;}
+#adminIn>nav{
+	display:none;}		
 #adminIn>h1{
-	font-size:30px;}
+	font-size:30px;
+	margin-bottom:10px;}
 
 #adminIn>form>label{
 	display:inline-block;
@@ -32,10 +35,30 @@
 	border:1px solid #ccc;
 	background-color: #fff;
 	color:#555;
-	cursor:pointer;}
+	cursor:pointer;
+	margin-bottom:20px;}
 #adminIn>form>button:hover{
 	background-color:#8D8D8D;
 	color:#fff;
-	}		
-#adminIn>nav{
-	display:none;}	
+	}	
+	
+#adminIn>ul{
+	overflow:auto;
+	margin-top:15px;}	
+#adminIn>ul>li{
+	float:left;
+	padding:0 15px;
+	height:25px;
+	border:1px solid #ccc;
+	line-height:25px;
+	margin-right:10px;
+	border-radius:5px;
+	margin-bottom:10px;}
+#adminIn>ul>li:hover{
+	color:blue;
+	cursor:pointer;}
+#adminIn>ul>li.selected{
+	border:1px solid #1A57A0;
+	background-color: #1A57A0;
+	color:#fff;}				
+
