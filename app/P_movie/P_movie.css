@@ -1,5 +1,12 @@
 @import '../G_pageing/G_pageing.css';
+@import '../G_category/G_category.css';
+@import '../G_search/G_search.css';
 
+#insert_search{
+	float:right;}
+#insert_category{
+	clear:both;}	
+	
 #movie{
 	color:#555;
 	width:80%;
@@ -8,17 +15,9 @@
 	background-color: #eee;
 	position:relative;}
 #movie>h1{
-	font-size:30px;}
-#movie>nav>a{
-	font-size:14px;}	
-#movie>nav>a:hover{
-	color:#1357CF;}
-#movie>nav>a.selected{
-	background-color: #154C7F;
-	color:#fff;
-	border-radius:5px;
-	padding:0 10px;}		
-	
+	font-size:30px;
+	float:left;}
+		
 #movie>ul{
 	margin-top:20px;}	
 #movie>ul>li{
@@ -46,23 +45,6 @@
 	line-height:23px;
 	}	
 	
-/*~~~~分页按钮加入~~~~~~*/
-/*#insert_pageing{
-	margin-top:20px;}
-#pageing{
-	width:40%;
-	margin:0 auto;
-	}
-#pageing>a{
-	padding:0 5px;
-	border:1px solid #ccc;
-	margin-right:5px;
-	float:left;}
-#pageing>a:hover{
-	background-color: #fff;
-	border:1px solid #154C7F;}	
-#pageing>a.current{
-	background-color: #154C7F;
-	border:1px solid #154C7F;
-	color:#fff;	
-}	*/		
+	
+
+	

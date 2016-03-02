@@ -22,12 +22,7 @@ G_pageing.STATE={
 
 G_pageing.prototype.main=function(){var state=this.opts; var $this=this	
 //~~~~~~~~~~~~~~~~~~~~~~
-/*var val=20/3
-alert(val)
-alert(Math.ceil(val))*/
-/*$("#pageing>a").click(function(e) {
-	$(this).addClass("current").siblings().removeClass("current")
-});*/
+
 //~~~~~~~~~~~~~~~~~~~~~~
 }
 

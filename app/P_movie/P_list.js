@@ -2,12 +2,13 @@
 	if ( typeof define === "function" && define.amd ) {
 		requirejs.config({
 			paths:{				 
-				add:'../tools/addmodule' 
+				add:'../tools/addmodule' ,
+				G_search:'../G_search/G_search',
 			}	
 		});		
-		define( ["add",], factory );		
+		define( ["add",'G_search'], factory );		
 	} else {factory( jQuery )}
-}(function(  ) { 
+}(function( add,G_search ) { 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 function P_list(opts){
 this.html='';
@@ -79,5 +80,6 @@ P_list.prototype.render=function(){var state=this.opts
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 $.fn.addModule($('body'),'P_list',P_list) 
 //return P_list;
+$.fn.addModule($('#insert_search'),'G_search',G_search) 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }))

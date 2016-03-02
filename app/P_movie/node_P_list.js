@@ -3,6 +3,18 @@ var coll_movie=mongodb_array.collection('movie')
 var cheerio=require('cheerio')
 var G_islogin=require('./node_G_islogin')
 
+/*	<nav class="inFLeft inmarRight-2">\
+		<a href="/movie/admin01/list" class="selected">总览</a>\
+		<a href="/movie/admin01/list/科幻">科幻</a>\
+		<a href="/movie/admin01/list/喜剧">喜剧</a>\
+		<a href="/movie/admin01/list/惊悚">惊悚</a>\
+		<a href="/movie/admin01/list/剧情">剧情</a>\
+		<a href="/movie/admin01/list/励志">励志</a>\
+		<a href="/movie/admin01/list/武侠">武侠</a>\
+		<a href="/movie/admin01/list/动画">动画</a>\
+	</nav>\*/
+
+
 var prevUrl='../../'
 var html='\
 <!doctype html>\
@@ -17,17 +29,9 @@ var html='\
 <body>\
 <section id="list">\
 	<h1>电影列表页</h1>\
+	<section id="insert_search">~~~~~~~~~~~~~~G_search~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</section>\
 	<h3 class="islogin"></h3>\
-	<nav class="inFLeft inmarRight-2">\
-		<a href="/movie/admin01/list" class="selected">总览</a>\
-		<a href="/movie/admin01/list/科幻">科幻</a>\
-		<a href="/movie/admin01/list/喜剧">喜剧</a>\
-		<a href="/movie/admin01/list/惊悚">惊悚</a>\
-		<a href="/movie/admin01/list/剧情">剧情</a>\
-		<a href="/movie/admin01/list/励志">励志</a>\
-		<a href="/movie/admin01/list/武侠">武侠</a>\
-		<a href="/movie/admin01/list/动画">动画</a>\
-	</nav>\
+	<section id="insert_category">~~~~~~~~~~~~~~G_category~~~~~~~~~~~~~~~~~~~~~~~~~~~~</section>\
 	<p class="p1">全部类型</p>\
 	<table>\
 		<thead>\
@@ -37,7 +41,7 @@ var html='\
 			<tr><td>aaa</td><td>aaa</td><td>aaa</td><td>aaa</td><td><a>查看</a></td><td><a>修改</a></td><td><button>删除</button></td></tr>\
 		</tbody>\
 	</table>\
-	<section id="insert_pageing"></section>\
+	<section id="insert_pageing">~~~~~~~~~~~~~~~G_pageing~~~~~~~~~~~~~~~~~~~~~~</section>\
 </section>\
 </body>\
 <script src="'+prevUrl+'../lib/require.js" data-main="'+prevUrl+'../P_movie/P_list.js"></script>\
@@ -80,14 +84,36 @@ function ajax2(app1){
 
 //~~~~~~~~~routerall~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var G_pageing=require('../G_pageing/node_G_pageing')
+var G_category=require('../G_category/node_G_category')
+var G_search=require('../G_search/node_G_search')
+
 function routerall(app1){
 	var $=cheerio.load(html,{decodeEntities: false})
-	app1.get('/movie/admin01/list',G_islogin.process($),G_pageing.process($,$("#insert_pageing"),'/movie/admin01/list',coll_movie,5),function(req,res){
+	
+	app1.get('/movie/admin01/list',
+	G_islogin.process($),
+	G_pageing.process($,$("#insert_pageing"),5,coll_movie,'category',{category:null},'search',{title:null}),
+	G_category.process($,$("#insert_category")),
+	G_search.process($,$("#insert_search")),
+	function(req,res){
+	var query={}
 	//~~~~加入分页功能用到~~~~~~~~~~~~~~~~~~~~~~~	
 	var skip=parseInt(req.query.skip) || 0
-	var limit=parseInt(req.query.limit) || 5
+	//var limit=parseInt(req.query.limit) || 5
+	limit=5	
+	//~~~~~~加入搜索功能兼容~~~~~~~~~~~~~~~~~~~~~~~
+	var search_val=req.query.search
+	if(search_val){
+		query={ title:new RegExp(search_val+'.*','i') }	
+	}
+	//~~~~~~加入标签类型功能兼容~~~~~~~~~~~~~~~~~~~~~~~
+	var category_val=req.query.category
+	if(category_val){
+		query={category:category_val}	
+	}		
+
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
-		coll_movie.find().skip(skip).limit(limit).toArray(function(err,result){
+		coll_movie.find(query).skip(skip).limit(limit).toArray(function(err,result){
 			var tr=''
 			for(var i in result){
 				var title='<td>'+result[i].title+'</td>'
@@ -106,12 +132,23 @@ function routerall(app1){
 			res.send(html)
 		})		
 	})
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//~~~~增加电影列表中的分类页面接口~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	var $1=cheerio.load(html,{decodeEntities:false})
+/*	var $1=cheerio.load(html,{decodeEntities:false})
 	app1.get('/movie/admin01/list/:class', //路由过程开始引入
 	G_islogin.process($1),
-	G_pageing.process($1,$1("#insert_pageing"),'/movie/admin01/list/',coll_movie,2,'class'),
+	G_pageing.process($1,$1("#insert_pageing"),'/movie/admin01/list/',2,coll_movie,'class'),
 	function(req,res){
 		var cate_name=req.params.class
 		//~~~~加入分页功能用到~~~~~~~~~~~~~~~~~~~~~~~	
@@ -149,7 +186,7 @@ function routerall(app1){
 			res.send(html)
 		})		
 	})
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//ajax1(app1)
 	ajax2(app1)
 }

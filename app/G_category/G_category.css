@@ -1,0 +1,14 @@
+#category{}	
+
+#category>a{
+	font-size:14px;
+	margin-right:0px;
+	padding:0 10px;}	
+#category>a:hover{
+	color:#1357CF;}
+#category>a.selected{
+	background-color: #154C7F;
+	color:#fff;
+	border-radius:5px;
+	}		
+

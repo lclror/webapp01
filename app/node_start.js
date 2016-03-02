@@ -61,3 +61,15 @@ app.get('/',function(req,res){
 
 var router_P_movie=require('./P_movie/router_P_movie')
 router_P_movie.routerall(app)
+
+var aaa={aaa:'i am in req saved'	}
+app.get(['/test/test','/test02/test02'],function(req,res,next){
+	req.G_test01={}
+	req.G_test01.test01=aaa
+	console.log(next)
+	next()
+},function(req,res){
+	var save_val=req.G_test01.test01
+	console.log(save_val)
+	res.send('<h1>testing...</h1>')	
+})
