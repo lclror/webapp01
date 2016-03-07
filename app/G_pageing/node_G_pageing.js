@@ -54,7 +54,7 @@ collKeyfromSearch			//给coll 搜索分页 要查库中的哪个键
 	var pro=function(req,res,next){
 		var interfaceUrl=req._parsedUrl.pathname
 		//console.log(req._parsedUrl.pathname)
-		var limit=2	
+		var _limit=limit //记住它的原始固定值在外层的封装方法中，这里要想让它保持不变，就得在头部定义，因为下面的过程需要对它做一个改动.
 		var query={}
 		//~~~计算当前页~~~~~~~
 		//这里取到的值是字符串，所以不能进行除法运算，必须先转换类型为number
@@ -82,7 +82,7 @@ collKeyfromSearch			//给coll 搜索分页 要查库中的哪个键
 		
 		if(!cate_name){
 		//传来的limit默认是2 ，如果url中没有关键字category说明是首页或者搜索页，那每页显示7个.
-			limit=7	
+			_limit=7	
 			
 		}
 		//search module~~辅助搜索功能用，按钮数量根据搜索结果来增加~~~~~~~~~~~~~
@@ -105,11 +105,11 @@ collKeyfromSearch			//给coll 搜索分页 要查库中的哪个键
 		whereCollPageing.find(query).count(function(err,count){
 		//if( parseInt(count)>5 && parseInt(count)<22 ){var limit=7}else if(parseInt(count)<=4){var limit=2}
 		//上面按钮数量正常变动了，但开始默认显示还是默认的limit，是因为在主视图页面查库没有查一步做一步判断、赋值一次，而是查库用链式调用了,就失去了灵活的变动赋值机会.
-			var btnCount=Math.ceil(count/limit)
+			var btnCount=Math.ceil(count/_limit)
 			if(btnCount==1){btnCount=0} //按钮数量为1时，按钮不显示
 			var div=''
 			for(var i=0;i<btnCount;i++){
-				var skip=i*limit
+				var skip=i*_limit
 				//var a='<a href="'+pageingUrl+cate_name+'?skip='+skip+'&limit='+limit+'">'+i+'</a>'
 				var a='<a href="'+interfaceUrl+'?skip='+skip+'&page='+i+'">'+(i+1)+'</a>'
 				//~~兼容标签的按钮生成~~~

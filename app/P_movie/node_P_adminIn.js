@@ -32,6 +32,7 @@ var html='\
 	<form>\
 		<label for="">标题 </label><input type="text"><br/>\
 		<label for="">海报 </label><input type="text"><br/>\
+		<label for="">海报上传 </label><input type="file"><br/>\
 		<label for="">导演 </label><input type="text"><br/>\
 		<label for="">国家 </label><input type="text"><br/>\
 		<label for="">语种 </label><input type="text" value="英语"><br/>\
@@ -46,24 +47,33 @@ var html='\
 </html>\
 '
 
+var multer=require('multer')
+var upload=multer({dest:'./P_movie/img'}) //此步是配置上传文件的存放位置，然后在路由过程中调用upload下面的一些方法.
 
+//关于文件上传，它已经相当于是一个写好的中间件了，哪个接口有要上传的文件就把它放在哪里，然后上传的文件的Key名写入到方法的参数中去，
+//在后面的路由过程中通过req.file来查看接收到的上传文件的具体信息，包括路径，文件名等。
 
 
 function ajax(app1){
-	app1.post('/ajax/movie/admin/save',function(req,res){
+	app1.post('/ajax/movie/admin/save',upload.single('posters_file'),function(req,res){
 		
 		var nav_movieId=req.body.nav  //ajax从页面中传递过来的 用来判断是否更新的条件值 用Id 来表示。
 
 		var title=req.body.title
-		var posters=req.body.posters
+		var posters=req.body.posters  //没有文件上传的话就使用外链路径
+		console.log('上传的图片大小 : '+req.file.size)
+		if(req.file){ //不能用req.file.fieldname  因为有二级对象调用，框架不支持检索二级对象层.
+			posters='../'+req.file.path	 //有文件上传过来，就使用内部的文件存放路径
+		}
 		var director=req.body.director
 		var country=req.body.country
 		var language=req.body.language
 		var year=req.body.year
 		var sourse=req.body.sourse
 		var descrtion=req.body.descrtion	
-		var category=req.body.category //增加电影标签，此数据是一个数组.
-		console.log(category)
+		var category=req.body.category //增加电影标签，此数据是一个数组.通过formdata后就不是一个数组了.
+		var category_arr=category.split(',')  //转化为数组.
+		//console.log(category_arr)
 		
 		var doc={
 				//_id:nav_movieId,  //主要是用它来决定是新插入还是更新原有的数据,
@@ -75,7 +85,8 @@ function ajax(app1){
 				year:year,
 				sourse:sourse,
 				descrtion:descrtion,
-				category:category
+				category:category_arr,
+				pv:0
 		}
 		if(nav_movieId!=''){ //如果里面有id ，则把_id 值加入到doc中，以便覆盖原数据内容，否则就不加_id  那就是新建一条数据了。
 			doc._id=ObjectId(nav_movieId)
@@ -157,14 +168,15 @@ function routerall(app1){
 				sourse=result[0].sourse,
 				descrtion=result[0].descrtion	
 				category=result[0].category	 //电影标签数组对象
+				//console.log(category)
 		var $input=$("#adminIn>form>input")
 		$input.eq(0).val(title)
 		$input.eq(1).val(posters)
-		$input.eq(2).val(director)
-		$input.eq(3).val(country)
-		$input.eq(4).val(language)
-		$input.eq(5).val(year)
-		$input.eq(6).val(sourse)
+		$input.eq(3).val(director)
+		$input.eq(4).val(country)
+		$input.eq(5).val(language)
+		$input.eq(6).val(year)
+		$input.eq(7).val(sourse)
 		$("#adminIn>form>textarea").val(descrtion)
 		$("#adminIn>nav").text(/*index*/movie_id) //这时把此电影的id 存入 nav容器中，因为index与id相同，所以这里为了快速就用了index 
 		//点提交时脚本就会把此值一并提交给ajax接口，然后ajax接口用此值来判断是否为更新.
@@ -176,6 +188,8 @@ function routerall(app1){
 				var tag_text=	category[i]
 				if(li_text==tag_text){
 					$this_li.addClass("selected")	
+				}else{
+					$this_li.removeClass('selected')	
 				}
 			}
 		});	

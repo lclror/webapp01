@@ -35,10 +35,10 @@ var html='\
 	<p class="p1">全部类型</p>\
 	<table>\
 		<thead>\
-			<tr><th>电影名字</th><th>导演</th><th>国家</th><th>上映年份</th><th>查看</th><th>更新</th><th>删除</th></tr>\
+			<tr><th>电影名字</th><th>导演</th><th>国家</th><th>上映年份</th><th>访问量</th><th>查看</th><th>更新</th><th>删除</th></tr>\
 		</thead>\
 		<tbody>\
-			<tr><td>aaa</td><td>aaa</td><td>aaa</td><td>aaa</td><td><a>查看</a></td><td><a>修改</a></td><td><button>删除</button></td></tr>\
+			<tr><td>aaa</td><td>aaa</td><td>aaa</td><td>aaa</td><td>0</td><td><a>查看</a></td><td><a>修改</a></td><td><button>删除</button></td></tr>\
 		</tbody>\
 	</table>\
 	<section id="insert_pageing">~~~~~~~~~~~~~~~G_pageing~~~~~~~~~~~~~~~~~~~~~~</section>\
@@ -92,7 +92,7 @@ function routerall(app1){
 	
 	app1.get('/movie/admin01/list',
 	G_islogin.process($),
-	G_pageing.process($,$("#insert_pageing"),5,coll_movie,'category',{category:null},'search',{title:null}),
+	G_pageing.process($,$("#insert_pageing"),4,coll_movie,'category',{category:null},'search',{title:null}),
 	G_category.process($,$("#insert_category")),
 	G_search.process($,$("#insert_search")),
 	function(req,res){
@@ -100,7 +100,7 @@ function routerall(app1){
 	//~~~~加入分页功能用到~~~~~~~~~~~~~~~~~~~~~~~	
 	var skip=parseInt(req.query.skip) || 0
 	//var limit=parseInt(req.query.limit) || 5
-	limit=5	
+	limit=7	
 	//~~~~~~加入搜索功能兼容~~~~~~~~~~~~~~~~~~~~~~~
 	var search_val=req.query.search
 	if(search_val){
@@ -110,6 +110,7 @@ function routerall(app1){
 	var category_val=req.query.category
 	if(category_val){
 		query={category:category_val}	
+		limit=5
 	}		
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
@@ -119,13 +120,14 @@ function routerall(app1){
 				var title='<td>'+result[i].title+'</td>'
 				var director='<td>'+result[i].director+'</td>'
 				var country='<td>'+result[i].country+'</td>'
-				var year='<td>'+result[i].year+'</td>'	
+				var year='<td>'+result[i].year+'</td>'
+				var pv='<td>'+result[i].pv || 0+'</td>'	//加入pv小功能
 				
 				var id=result[i]._id
 				var look='<td><a href="/movie/details/'+id+'">查看</a></td>'
 				var update='<td><a href="/movie/admin01/save/'+id+'">修改</a></td>'
 				var button='<td><button>删除</button</td>'
-				tr+='<tr>'+title+director+country+year+look+update+button+'</tr>'
+				tr+='<tr>'+title+director+country+year+pv+look+update+button+'</tr>'
 			}	
 			$("#list>table>tbody").html(tr)
 			var html=$.html()

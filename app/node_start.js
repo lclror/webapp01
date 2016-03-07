@@ -50,8 +50,7 @@ app.use(morgan('combined'))*/
 if('development'===app.get('env')){
 	app.locals.pretty=true;	
 }*/
-
-app.listen(80,function(){console.log('running ')})
+//app.listen(80,function(){console.log('running ')})
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.get('/',function(req,res){
 	var time=new Date()
@@ -73,3 +72,17 @@ app.get(['/test/test','/test02/test02'],function(req,res,next){
 	console.log(save_val)
 	res.send('<h1>testing...</h1>')	
 })
+
+var G_upload=require('./G_upload/node_G_upload')
+G_upload.ajax(app)
+
+//~~~~~socket part~~~~~~~~~~~~~~~~~~~~~~~~
+var http = require('http').createServer(app)
+//引入socket.io模块并绑定到服务器;
+var io = require('socket.io').listen(http) 
+//http.listen(80)
+http.listen(80,function(){console.log('running ')})
+
+
+var P_socket=require('./P_socket/node_P_socket')
+P_socket.socket(io)

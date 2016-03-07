@@ -54,6 +54,11 @@ function routerall(app1){
 	app1.get('/movie/details/:id',G_commentProcess,function(req,res){
 		//var index=parseInt(req.params.id)
 		var _id=req.params.id
+		//~~~~~~加入访问量统计~~~~~~~~~~~~
+		coll_movie.update({_id:ObjectId(_id)},{$inc:{pv:1}},function(err){
+			if(err){console.log(err)}	
+		})
+		//~~~~~详情页单个电影数据~~~~~~~~~~~~~
 		coll_movie.find({_id:/*index*/ObjectId(_id)}).toArray(function(err,result){
 			var title='<li>'+result[0].title+'</li>'
 			var director='<li>'+result[0].director+'</li>'

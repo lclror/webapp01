@@ -1,0 +1,19 @@
+#upload01{
+	width:50%;
+	background-color: #eee;
+	margin:0 auto;
+	padding:20px;
+	overflow:hidden;
+	}
+#upload01 img{
+	width:260px;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+	}	
+
+#formupload01{
+	background-color: #ccc;
+	}
+#divupload01{
+	border:1px solid #999;}	

@@ -35,16 +35,51 @@ $("#adminIn>form>button").click(function(e) {
 	var nav=$("#adminIn>nav").text()
 	var title=$input.eq(0).val()
 	var posters=$input.eq(1).val()
-	var director=$input.eq(2).val()
-	var country=$input.eq(3).val()
-	var language=$input.eq(4).val()
-	var year=$input.eq(5).val()
-	var sourse=$input.eq(6).val()
+	var posters_file=$input.eq(2)[0].files[0] //加入文件上传
+	var director=$input.eq(3).val()
+	var country=$input.eq(4).val()
+	var language=$input.eq(5).val()
+	var year=$input.eq(6).val()
+	var sourse=$input.eq(7).val()
 	var descrtion=$("#adminIn>form>textarea").val()
+	//var category={tag:null}; category.tag=tag_array
 	var category=tag_array
-	
-	
-	$.post('/ajax/movie/admin/save',
+	//console.log(category)
+	//~~formdata 是为了加入文件上传所做的结构改动~~~~~~~~
+	var formdata=new FormData()
+	formdata.append('nav',nav)
+	formdata.append('title',title)
+	formdata.append('posters',posters)
+	formdata.append('posters_file',posters_file)
+	formdata.append('director',director)
+	formdata.append('country',country)
+	formdata.append('language',language)
+	formdata.append('year',year)
+	formdata.append('sourse',sourse)
+	formdata.append('descrtion',descrtion)
+	formdata.append('category',category) //到这里时它不是一个数组了
+	console.log(formdata)
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$.ajax({
+		url:'/ajax/movie/admin/save',	
+		type:'POST',
+		cache:false,
+		data:formdata,
+		processData:false,
+		contentType:false,
+		dataType:"json"
+		
+	}).done(function(result){
+		alert(result.status)	
+		$("#adminIn>form>input").val(null)
+		$("#adminIn>form>textarea").val(null)
+		$("#adminIn>nav").text(null)
+		$("#adminIn>ul>li").removeClass("selected")
+	}).fail(function(result){
+		alert(result.status)	
+	})
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*	$.post('/ajax/movie/admin/save',
 		{
 		nav:nav,
 		title:title,
@@ -64,7 +99,7 @@ $("#adminIn>form>button").click(function(e) {
 			$("#adminIn>nav").text(null)
 			$("#adminIn>ul>li").removeClass("selected")
 		},'json')
-	
+*/	
 });
 //~~~~加入标签按钮 选择功能~~
 $("#adminIn>ul>li").click(function(e) {

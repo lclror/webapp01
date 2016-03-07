@@ -3,41 +3,33 @@ var coll_movie=mongodb_array.collection('movie')
 var cheerio=require('cheerio')
 var cache=require('memory-cache')
 
-/*	<nav class="inFLeft inmarRight-2">\
-		<a href="/movie" class="selected">首页</a>\
-		<a href="/movie/category/科幻">科幻</a>\
-		<a href="/movie/category/喜剧">喜剧</a>\
-		<a href="/movie/category/惊悚">惊悚</a>\
-		<a href="/movie/category/剧情">剧情</a>\
-		<a href="/movie/category/励志">励志</a>\
-		<a href="/movie/category/武侠">武侠</a>\
-		<a href="/movie/category/动画">动画</a>\
-	</nav>\*/
+
 	
-var html='\
-<!doctype html>\
-<html>\
-<head>\
-<meta charset="utf-8">\
-<title>电影首页</title>\
-<script src="../../lib/jquery.js"></script>\
-<link rel="stylesheet" href="../../lib/xxxbase.css">\
-<link rel="stylesheet" href="../../P_movie/P_movie.css">\
-</head>\
-<body>\
-<section id="movie">\
-	<h1>MOVIE 首页</h1>\
-	<section id="insert_search">\
-		~~~~~~~~~~~~~<div id="search"><input class="form-input" type="text"><a>search</a></div>~~~~~~~~~~~~~~~~~~\
-	</section>\
-	<section id="insert_category">~~~~~~~~放入电影类型标签nav~~~~~~~~~~</section>\
-	<ul class="rows-count-7-gap-2 inFLeft rowsMbottom-2">\
-	</ul>\
-	<section id="insert_pageing">~~~~~~~~~~放入分页页码~~~~~~~~~~</section>\
-</section>\
-</body>\
-<script src="../../lib/require.js" data-main="../../P_movie/P_movie.js"></script>\
-</html>\
+var html='\n\
+<!doctype html>\n\
+<html>\n\
+<head>\n\
+<meta charset="utf-8">\n\
+<title>电影首页</title>\n\
+<script src="../../lib/jquery.js"></script>\n\
+<link rel="stylesheet" href="../../lib/xxxbase.css">\n\
+<link rel="stylesheet" href="../../P_movie/P_movie.css">\n\
+</head>\n\
+<body>\n\
+<section id="movie">\n\
+	<h1>MOVIE 首页</h1>\n\
+	\n\
+	<section id="insert_search">~~~~~~~~搜索功能块~</section>\n\
+	\n\
+	<section id="insert_category">~放入电影类型标签~~~~~</section>\n\
+	\n\
+	<ul class="rows-count-7-gap-2 inFLeft rowsMbottom-2">~~~~~电影数据渲染~~~~~</ul>\n\
+	\n\
+	<section id="insert_pageing">~~~~放入分页页码~~~~~</section>\n\
+</section>\n\
+</body>\n\
+<script src="../../lib/require.js" data-main="../../P_movie/P_movie.js"></script>\n\
+</html>\n\
 '
 //每个电影的小块组成如下
 //<li><img src="../P_movie/img/yr.jpg" alt=""/><h3>蚁人</h3><a>观看预告片</a></li>\
@@ -189,7 +181,7 @@ function(req,res,next){
 	coll_movie.find(query).skip(skip).limit(limit).toArray(function(err,result){
 		//console.log(err) 
 		//console.log(result)
-		var ul=''
+		var ul='\n'
 		//~~~增加result为空的提示~~~~~~~~~~
 		if(result[0]==null){
 			ul='<h2>未搜索到结果</h2>'	
@@ -204,7 +196,7 @@ function(req,res,next){
 			var img='<img src="'+posters+'"/>'
 			//movie 详情页链接参数用id出传递区分
 			var a='<a target="_blank" href="/movie/details/'+id+'">观看预告片</a>'
-			var li='<li>'+img+h3+a+'</li>'
+			var li='<li>'+img+h3+a+'</li>\n'
 			ul+=li
 		}
 		$("#movie>ul").html(ul)

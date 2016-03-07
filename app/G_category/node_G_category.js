@@ -4,7 +4,7 @@ var html='\
 		<a href="/movie" class="selected">首页</a>\
 	</nav>\
 ';
-var cate_array=['科幻','喜剧','惊悚','剧情','励志','武侠','动画']
+var cate_array=['科幻','喜剧','惊悚','剧情','励志','武侠','动画','爱情','悬疑','动作']
 
 //G_category.process($,放到哪个父容器中$('#xxx')，在url中的关键字段'xxx'，在coll查询哪个字段{xxx:null})
 //还有夸中间件传值(query代表mongodb的查询条件)：  req.G_category_query={xxx:'xxx'}  

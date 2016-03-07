@@ -58,8 +58,8 @@ function process($,collN_comment,query){
 					}	
 				}
 				populate.populateN(opt,function(comment_res){
-					console.log('=========限定返回第一条评论内容=============================')
-					console.log(comment_res[0])
+					//console.log('=========限定返回第一条评论内容=============================')
+					//console.log(comment_res[0])
 					var ul=''
 					for(var i in comment_res){
 							var img='<img src="../../img/user/user.jpg"/>'
