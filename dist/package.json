@@ -1,0 +1,45 @@
+{
+  "name": "webapp01",
+  "version": "1.0.0",
+  "description": "node+mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lclror/webapp01.git"
+  },
+  "keywords": [
+    "node",
+    "mongodb",
+    "express",
+    "create_website"
+  ],
+  "author": "lclror",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lclror/webapp01/issues"
+  },
+  "homepage": "https://github.com/lclror/webapp01#readme",
+  "dependencies": {
+    "autoprefixer": "^6.3.1",
+    "body-parser": "latest",
+    "cheerio": "^0.20.0",
+    "compression": "^1.6.1",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "kerberos": "0.0.18",
+    "memory-cache": "latest",
+    "mongoskin": "^2.0.3",
+    "morgan": "latest",
+    "multer": "latest",
+    "serve-favicon": "latest",
+    "socket.io": "^1.4.5"
+  }
+}

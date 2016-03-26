@@ -1,0 +1,1 @@
+var mongoskin=require("mongoskin"),userName=":",password="@",host="localhost",port="27017",dbName="array",str="mongodb://"+host+":"+port+"/"+dbName,options={native_parser:!0},db=mongoskin.db(str,options);module.exports=db;

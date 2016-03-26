@@ -1,0 +1,29 @@
+@import '../G_pageing/G_pageing.css';
+@import '../G_search/G_search.css';
+@import '../G_category/G_category2.css';
+@import './G_booklist2.css';
+
+#insert_search{
+	float:right;}
+#insert_category{
+	clear:both;}
+	
+	
+	
+#booktable{
+	color:#555;
+	width:80%;
+	overflow:hidden;
+	margin:30px auto;
+	background-color:;
+	position:relative;}
+#booktable>h1{
+	font-size:30px;
+	float:left;
+	margin-bottom:10px;}
+#booktable>h3{
+	clear:both;}
+	
+#booktable>p{
+	margin:10px 0;}	
+	

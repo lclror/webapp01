@@ -7,13 +7,14 @@ var cache=require('memory-cache')
 	
 var html='\n\
 <!doctype html>\n\
-<html>\n\
+<html lang="zh-CN">\n\
 <head>\n\
-<meta charset="utf-8">\n\
+<meta charset="utf-8" />\n\
 <title>电影首页</title>\n\
-<script src="../../lib/jquery.js"></script>\n\
-<link rel="stylesheet" href="../../lib/xxxbase.css">\n\
-<link rel="stylesheet" href="../../P_movie/P_movie.css">\n\
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">\n\
+<meta name="renderer" content="webkit" />\n\
+<link rel="stylesheet" href="../../lib/xxxbase.css" type="text/css" />\n\
+<link rel="stylesheet" href="../../P_movie/P_movie.css" type="text/css" />\n\
 </head>\n\
 <body>\n\
 <section id="movie">\n\
@@ -28,7 +29,6 @@ var html='\n\
 	<section id="insert_pageing">~~~~放入分页页码~~~~~</section>\n\
 </section>\n\
 </body>\n\
-<script src="../../lib/require.js" data-main="../../P_movie/P_movie.js"></script>\n\
 </html>\n\
 '
 //每个电影的小块组成如下
@@ -157,9 +157,9 @@ function(req,res,next){
 	if(search_val){
 		//query=req.G_search 
 		query={title:new RegExp( search_val+'.*','i')} //不要因为查库条件复杂了而否决这种实时定义方法.
-		$("#movie>h1").html('<h1>MOVIE 搜索结果页</h1>')
+		$("#movie>h1").html('MOVIE 搜索结果页')
 	}else{
-		$("#movie>h1").html('<h1>MOVIE 首页</h1>')	
+		$("#movie>h1").html('MOVIE 首页')	
 	}
 	//~~~~~增加电影类别兼容~~~~~~~~~~~~~~~~~
 	var category=req.query.category
@@ -172,7 +172,8 @@ function(req,res,next){
 		query={category:category}
 		//limit=parseInt(req.query.limit) || 2	 //如果url中有关键字category 那每页就显示2个电影
 		limit=2
-		$("#movie>h1").html('<h1>MOVIE '+category+'</h1>')
+		//console.log(category)
+		$("#movie>h1").text('MOVIE '+category)
 	}else{
 		//limit=parseInt(req.query.limit) || 7	
 	}
@@ -193,7 +194,7 @@ function(req,res,next){
 			var id=result[i]._id
 			
 			var h3='<h3>'+title+'</h3>'
-			var img='<img src="'+posters+'"/>'
+			var img='<img alt="poster" src="'+posters+'"/>'
 			//movie 详情页链接参数用id出传递区分
 			var a='<a target="_blank" href="/movie/details/'+id+'">观看预告片</a>'
 			var li='<li>'+img+h3+a+'</li>\n'

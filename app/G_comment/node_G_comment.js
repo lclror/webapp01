@@ -43,6 +43,7 @@ function process($,collN_comment,query){
 			//var index=parseInt(req.params.id)
 			var movie_id=req.params.id
 			var admin=req.session.adminlogin
+			//if(movie_id!=24){next()}else{
 			for(var i in query){ //此处为灵活定义查询那个字段用，并不现定于电影的评论
 				//query[i]=index	
 				query[i]=ObjectId(movie_id)
@@ -109,6 +110,7 @@ function process($,collN_comment,query){
 					next()
 				})	
 			})
+			//}// top else use
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~			
 	}
 	return pro	

@@ -1,0 +1,38 @@
+
+@import './G_booklist.css';
+@import '../G_pageing/G_pageing.css';
+@import '../G_category/G_category2.css';
+@import '../G_search/G_search.css';
+@import '../G_login/G_login.css';
+@import '../G_lunbo/G_lunbo.css';
+#P_book{
+	width:1100px;
+	margin:0px auto;
+	border:1px solid #eee;
+	position:relative;
+	overflow:hidden;
+	padding:0 12px;
+	}
+#P_book>h1{
+	padding-top:10px;
+	text-shadow:2px 0px 0px;
+	float:left;
+	color:#666;
+	margin-bottom:10px;
+	}	
+
+#insert_booklist{
+	clear:both;}	
+#insert_category{
+	clear:both;
+	border-right:3px solid #ccc;}
+#insert_pageing{
+	margin-top:5px;}	
+#insert_search{
+	float:right;
+	margin-bottom:10px;}	
+#insert_lunbo{
+	clear:both;
+	margin-bottom:20px;
+	overflow:hidden;
+}

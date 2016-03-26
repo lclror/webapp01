@@ -1,7 +1,7 @@
 /*~~~~搜索框加入~~~~~~*/
 #search{
 	float:right;
-	margin:10px 5px 0 0;}
+	margin:10px 0px 0 0;}
 #search>input{
 	border-radius:5px 0 0 5px;
 	border-right:0px;
@@ -14,5 +14,5 @@
 	height:30px;
 	line-height:28px;
 	color:#fff;
-	border-radius:0 5px 5px 0;
+	border-radius:0 5px 0px 0;
 	padding:0 5px;}

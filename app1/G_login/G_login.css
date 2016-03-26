@@ -1,0 +1,66 @@
+#login{
+	height:28px;
+	background-color: #eee;
+	position:relative;}
+#login.test{
+	background-color:rgba(0,0,0,0.75);
+	position:fixed;
+	width:100%;
+	z-index:2;
+	}
+#login.test a{
+	color:#fff;}		
+	
+#login a{
+	color:#333;
+	padding:0 5px;
+	font-size:13px;
+	line-height:28px;
+	}	
+#login a.a5{
+	transition:box-shadow 0.3s;
+	font-size: 12px;
+	margin-left: 20px;
+	
+}	
+#login a.a5:hover{
+		-webkit-box-shadow: inset 0px -4px #FF9E00;
+	box-shadow: inset 0px -4px #FF9E00;
+	}	
+#login a:hover{
+	color:#FF9E00;}	
+#login .hide{
+	display:none;}
+		
+/*~~~block~~~~~~~~~*/
+#sign_block{
+	right:10px;}	
+#sign_block,
+#login_block{
+	z-index:2;
+	top:32px;
+	right:50px;
+	position:absolute;
+	overflow:auto;
+	width:240px;
+	background-color: #ccc;
+	border:2px solid #000;
+	border-radius:10px;
+	padding:15px;
+	padding-top:5px;
+	}
+#sign_block>h1,	
+#login_block>h1{
+	padding-bottom:5px;
+	margin-left:37px;
+	color:#333;}
+#sign_block>form,		
+#login_block>form{
+	}	
+#sign_block>form>input,	
+#login_block>form>input{
+	margin-left:10px;
+	margin-bottom:5px;}	
+#sign_block>form>button,	
+#login_block>form>button{
+	margin-left:37px;}	

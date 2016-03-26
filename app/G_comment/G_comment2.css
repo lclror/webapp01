@@ -1,0 +1,78 @@
+
+#comment{
+	width:300px;
+	background-color: #F8F8F8;}
+#comment>h1{
+	margin:10px 0;
+	color:#2B49A6;}
+#comment>span{
+	display:none;}
+#comment>ul *>h4>span:hover{
+	cursor:pointer;
+	color:red;}		
+#comment>ul>li{
+	margin-bottom:5px;
+	overflow:auto;
+	clear:both;
+	}
+#comment>ul>li:hover{
+	background-color: #eee;}	
+#comment>ul>li:hover>a{
+	display:block;}
+#comment>ul>li>div:hover{
+	background-color: #ccc;}	
+#comment>ul>li>div:hover>a{
+	display:block;}		
+#comment>ul>li>img{
+	width:35px;
+	border:1px solid #555;
+	float:left;
+	margin-right:5px;
+}
+#comment>ul>li>p{
+	width:260px;
+	background-color:;
+	float:left;}	
+#comment>ul>li>a{
+	margin-top:-15px;
+	position:absolute;
+	left:275px;
+	color:#2B49A6;
+	}
+#comment>ul>li a{
+	display:none;}	
+		
+#comment>ul>li>div{
+	padding-left:35px;
+	overflow:auto;
+	clear:both;
+	}
+#comment>ul>li>div>img{
+	width:35px;
+	border:1px solid #555;
+	float:left;
+	margin-right:5px;
+}
+#comment>ul>li>div>p{
+	width:220px;
+	background-color:;
+	float:left;}
+#comment>ul>li>div>a{
+	margin-top:-15px;
+	position:absolute;
+	left:275px;
+	color:#2B49A6;
+	}	
+	
+	
+#comment>textarea{
+	width:100%;
+	}	
+	
+#comment>button{
+	background-color: #2B49A6;
+	color:#fff;}	
+#comment>button:hover{
+	background-color: #555;}	
+
+

@@ -1,0 +1,18 @@
+/*~~~~搜索框加入~~~~~~*/
+#search{
+	float:right;
+	margin:10px 0px 0 0;}
+#search>input{
+	border-radius:5px 0 0 5px;
+	border-right:0px;
+	width:200px;
+	float:left;}
+#search>a{
+	float:right;
+	border:1px solid #666;
+	background-color: #666;
+	height:30px;
+	line-height:28px;
+	color:#fff;
+	border-radius:0 5px 0px 0;
+	padding:0 5px;}

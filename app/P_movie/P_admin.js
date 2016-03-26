@@ -28,13 +28,15 @@ $("#login>form>button").click(function(e) {
 	var name=$input.eq(0).val()
 	var pass=$input.eq(1).val()
 	
-	$.post('/ajax/movie/adminlogin',{name:name,pass:pass},function(result){
+	$.post('/ajax/book/adminlogin',{name:name,pass:pass},function(result){
 		//alert(name)
 		if(result[0].status=='error'){
 			alert('error')	
 		}else{
-			alert('success')	
-			window.location=result[0].path
+			var href=result[0].href
+			alert('success')
+			//alert(href)	
+			window.location.href=href
 		}
 	},'json')
 });

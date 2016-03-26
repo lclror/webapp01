@@ -1,0 +1,1 @@
+function process(e,t){t.html(html);var n=function(t,n,r){var i=t._parsedUrl.pathname;e("#search>a").attr("href",i+"?search="),r()};return n}var html='<div id="search"><input class="form-input" type="text"><a>search</a></div>';exports.process=process;

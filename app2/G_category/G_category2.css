@@ -1,0 +1,28 @@
+#_insert_category{
+	width:800px;
+	border:1px solid #ccc;
+	margin:10px auto;}
+#category{
+	margin-bottom:10px;
+	}	
+
+#category>a{
+	margin-bottom:10px;
+	font-size:13px;
+	margin-right:12px;
+	padding:2px 15px;
+	border-radius:3px;
+	color:#fff;
+	border:1px solid #1BD0BC;
+	background-color: #1BD0BC;
+	-webkit-transition:all 0.2s;
+	}	
+#category>a:hover{
+	color:#1BD0BC;
+	border:1px solid #1BD0BC;
+	background-color: #fff;}
+#category>a.selected{
+	color:#1BD0BC;
+	background-color: #fff;
+	}		
+

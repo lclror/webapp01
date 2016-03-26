@@ -1,0 +1,22 @@
+/*~~~~分页按钮加入~~~~~~*/
+#insert_pageing{
+	margin-top:0px;}
+#pageing{
+	margin-left:-50px;
+	float:left;
+	position:relative;
+	left:50%;
+	}
+#pageing>a{
+	padding:0 5px;
+	border:1px solid #ccc;
+	margin-right:5px;
+	float:left;}
+#pageing>a:hover{
+	background-color: #fff;
+	border:1px solid #154C7F;}	
+#pageing>a.current{
+	background-color: #154C7F;
+	border:1px solid #154C7F;
+	color:#fff;	
+}	

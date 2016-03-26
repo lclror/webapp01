@@ -1,0 +1,61 @@
+@import '../G_comment/G_comment2.css';
+@import '../G_login/G_login.css';
+#insert_comment{
+	position:absolute;
+	top:650px;
+	}
+
+
+#page{
+	overflow:hidden;
+	width:1200px;
+	margin:0 auto;
+	border-left:2px solid #eee;
+	border-right:2px solid #eee;
+	padding:10px;}
+#page>h1{
+	color:#666;
+	margin-bottom:10px;
+	margin-left:10px;}
+#page>p{
+	margin-top:-35px;
+	margin-bottom:15px;
+	text-align:center;
+	font-size:18px;
+	color:#2B49A6;}		
+#page>ul{
+	float:left;
+	width:300px;
+	border:1px solid #ccc;
+	padding:10px;}	
+#page>ul>img{
+	width:277px;
+	height:400px;
+	margin-bottom:10px;}	
+#page>ul>li{
+	text-align:center;
+	margin-bottom:3px;}	
+#page>ul>li.li8{
+	background-color: #eee;}	
+	
+#page>dl{
+	margin-bottom:15px;
+	padding:15px;
+	border-radius:20px;
+	background-color: #eee;
+	margin-left:10px;
+	float:right;
+	width:855px;}	
+#page>dl>dt{
+	margin-bottom:15px;
+	background-color: ;
+	color:#00A87C;
+	text-align:center;
+	font-size:14px;}	
+#page>dl>p{
+	text-align:center;
+	line-height:20px;
+	font-size:14px;
+	color:#333}	
+#page>dl.dl1>p{
+	text-align:left;}	

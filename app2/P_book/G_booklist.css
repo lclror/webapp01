@@ -1,0 +1,54 @@
+#_insert_booklist{
+	width:1100px;
+	margin:30px auto;
+	border:1px solid #eee;}
+	
+#booklist{
+	overflow:hidden;
+	}	
+#booklist>ul{
+	padding:0px;}	
+#booklist>ul>li{
+	margin-bottom:20px;
+	background-color: #fff;
+		border:3px solid #fff;
+		transition:all 0.5s;
+		height:300px;
+	}	
+#booklist>ul>li:hover{
+	border:3px solid #eee;
+			
+	}
+#booklist>ul>li>dt,
+#booklist>ul>li>dl,
+#booklist>ul>li>a{
+	padding-left:20px;
+	margin-bottom:5px;
+	width:190px;
+	float:left;
+	background-color: ;
+}
+#booklist>ul>li>a:hover{
+	color:#40E5D8;}		
+#booklist>ul>li>dt{
+	margin-top:5px;
+	font-size:14px;
+	height:;
+	line-height:;}	
+#booklist>ul>li>dl{
+	color:#333;
+	font-size:12px;
+}	
+#booklist>ul>li>p{
+	text-indent:25px;
+	padding:10px;
+	padding-left:0px;
+	clear:left;
+	color:#666;}
+#booklist>ul>li>img{
+	box-shadow:-3px -3px 20px 1px #767676;
+	margin-bottom:15px;
+	width:130px;
+	height:190px;
+	float:left;
+	margin:;}	

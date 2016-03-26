@@ -1,9 +1,11 @@
 /*~~~~分页按钮加入~~~~~~*/
 #insert_pageing{
-	margin-top:20px;}
+	margin-top:0px;}
 #pageing{
-	width:40%;
-	margin:0 auto;
+	margin-left:-50px;
+	float:left;
+	position:relative;
+	left:50%;
 	}
 #pageing>a{
 	padding:0 5px;

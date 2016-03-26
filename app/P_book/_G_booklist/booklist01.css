@@ -1,0 +1,31 @@
+body{
+	background-color: #E8EBDA;
+	padding:0 50px;}
+	
+#booklist{
+	overflow:hidden;
+	padding:50px;
+	border:1px solid #8ACCD7;
+	}	
+#booklist>ul>li{
+	text-align:center;
+	background-color: #fff;
+	}	
+#booklist>ul>li:hover{
+		
+	box-shadow:2px 2px 3px #ccc ;
+	}	
+#booklist>ul>li>dt{
+	font-size:14px;
+	height:30px;
+	line-height:30px;}	
+#booklist>ul>li>dl{
+	color:#333;
+	font-size:12px;
+}	
+#booklist>ul>li>p{
+	padding:15px;
+	color:#666;}
+#booklist>ul>li>img{
+	width:100%;
+	margin:;}	

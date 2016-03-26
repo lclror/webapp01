@@ -945,7 +945,12 @@ input:focus{
 	}
 .btn-bg:hover{
 	background-color:#8D8D8D;	
-	}		
+	}	
+	
+.hide{
+	display:none;}		
+.show{
+	display:block;}		
 	
 
 	

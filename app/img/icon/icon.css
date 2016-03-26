@@ -1,0 +1,113 @@
+@font-face {
+	font-family: 'icon';
+	src:url('./icon.eot?x8zkai');
+	src:url('./icon.eot?#iefixx8zkai') format('embedded-opentype'),
+		url('./icon.woff?x8zkai') format('woff'),
+		url('./icon.ttf?x8zkai') format('truetype'),
+		url('./icon.svg?x8zkai#icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.kkk-chevron-thin-down:before {
+	content: "\e600";
+}
+
+.kkk-chevron-thin-left:before {
+	content: "\e601";
+}
+
+.kkk-chevron-thin-right:before {
+	content: "\e602";
+}
+.kkk-r:before {
+	content: "\e602";
+}
+
+.kkk-chevron-thin-up:before {
+	content: "\e603";
+}
+
+.kkk-check:before {
+	content: "\e604";
+}
+
+.kkk-cross:before {
+	content: "\e605";
+}
+
+.kkk-triangle-down:before {
+	content: "\f05b";
+}
+
+.kkk-triangle-left:before {
+	content: "\f044";
+}
+
+.kkk-triangle-right:before {
+	content: "\f05a";
+}
+
+.kkk-triangle-up:before {
+	content: "\f0aa";
+}
+
+.kkk-home3:before {
+	content: "\e902";
+}
+
+.kkk-pencil:before {
+	content: "\e905";
+}
+
+.kkk-spinner8:before {
+	content: "\e981";
+}
+
+.kkk-hammer:before {
+	content: "\e996";
+}
+
+.kkk-mug:before {
+	content: "\e9a2";
+}
+	
+	
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.k-d:before {
+	content: "\f05b";
+}
+
+.k-l:before {
+	content: "\f044";
+}
+
+.k-r:before {
+	content: "\f05a";
+}
+
+.k-u:before {
+	content: "\f0aa";
+}	
+
+.kkleft:before {
+	content: "\e601";
+}
+
+.kkright:before {
+	content: "\e602";
+}

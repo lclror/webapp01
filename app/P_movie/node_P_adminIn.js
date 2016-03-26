@@ -60,9 +60,10 @@ function ajax(app1){
 		var nav_movieId=req.body.nav  //ajax从页面中传递过来的 用来判断是否更新的条件值 用Id 来表示。
 
 		var title=req.body.title
-		var posters=req.body.posters  //没有文件上传的话就使用外链路径
-		console.log('上传的图片大小 : '+req.file.size)
+		var posters=req.body.posters  //没有文件上传的话就使用外链路径(input输入框中的text信息)
+		
 		if(req.file){ //不能用req.file.fieldname  因为有二级对象调用，框架不支持检索二级对象层.
+			console.log('上传的图片大小 : '+req.file.size)
 			posters='../'+req.file.path	 //有文件上传过来，就使用内部的文件存放路径
 		}
 		var director=req.body.director

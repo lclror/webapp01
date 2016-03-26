@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="admin.bson" server="120.25.97.121//home/app_test/" local="131031013678666079" remote="131031015000000000" Dst="0" />
+<file name="admin.metadata.json" server="120.25.97.121//home/app_test/" local="131031013678466067" remote="131031015000000000" Dst="0" />
+<file name="booklist.bson" server="120.25.97.121//home/app_test/" local="131031013678606075" remote="131031015000000000" Dst="0" />
+<file name="booklist.metadata.json" server="120.25.97.121//home/app_test/" local="131031013678446066" remote="131031015010000000" Dst="0" />
+<file name="comment.bson" server="120.25.97.121//home/app_test/" local="131031013678646077" remote="131031015010000000" Dst="0" />
+<file name="comment.metadata.json" server="120.25.97.121//home/app_test/" local="131031013678416064" remote="131031015010000000" Dst="0" />
+<file name="commentBook.bson" server="120.25.97.121//home/app_test/" local="131031013678636077" remote="131031015010000000" Dst="0" />
+<file name="commentBook.metadata.json" server="120.25.97.121//home/app_test/" local="131031013678406064" remote="131031015020000000" Dst="0" />
+<file name="movie.bson" server="120.25.97.121//home/app_test/" local="131031013678656078" remote="131031015020000000" Dst="0" />
+<file name="movie.metadata.json" server="120.25.97.121//home/app_test/" local="131031013678506069" remote="131031015020000000" Dst="0" />
+</dwsync>

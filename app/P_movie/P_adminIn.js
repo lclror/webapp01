@@ -132,10 +132,10 @@ $("#adminIn>button.btn1").click(function(e) {
 				var $input=$("#adminIn>form>input")
 				$input.eq(0).val(title)
 				$input.eq(1).val(posters)
-				$input.eq(2).val(director)
-				$input.eq(3).val(country)
+				$input.eq(3).val(director)
+				$input.eq(4).val(country)
 				//$input.eq(4).val(language)
-				$input.eq(5).val(year)
+				$input.eq(6).val(year)
 				//$input.eq(6).val(sourse)
 				$("#adminIn>form>textarea").val(descrtion)
 			}

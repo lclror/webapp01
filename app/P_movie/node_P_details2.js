@@ -23,7 +23,7 @@ var html='\
 	<h1 class="h1">movie </h1>\
 	<p class="p1">科幻类</p>\
 	<div class="div1 inFLeft">\
-		<embed class="width-8" src="../test.swf" allowFullScreen="true" quality="high" width="720" height="500" align="middle" type="application/x-shockwave-flash">\
+		<embed class="width-8" src="../../P_movie/video/test.swf" allowFullScreen="true" quality="high" width="720" height="500" align="middle" type="application/x-shockwave-flash">\
 		<ul class="width-1">\
 			<li>电影名字</li>\
 			<li>导演</li>\
@@ -51,15 +51,31 @@ var G_commentProcess=G_comment.process($,coll_comment,{movie_id:null})
 
 function routerall(app1){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	app1.get('/movie/details/:id',G_commentProcess,function(req,res){
+	app1.get('/movie/details/:id',
+	function(req,res,next){
+	//此处为了去掉ObjectId() 处理非特定Id时的报错,正常的id是24个字符长度.	
+		var movie_id=req.params.id
+		if(movie_id.length !=24){
+			res.redirect('/movie')	
+		}else{next()}	
+	},
+	G_commentProcess,//评论路由过程
+	function(req,res){
 		//var index=parseInt(req.params.id)
 		var _id=req.params.id
-		//~~~~~~加入访问量统计~~~~~~~~~~~~
-		coll_movie.update({_id:ObjectId(_id)},{$inc:{pv:1}},function(err){
-			if(err){console.log(err)}	
-		})
 		//~~~~~详情页单个电影数据~~~~~~~~~~~~~
+		//if(_id.length!=24){res.redirect('/movie')}else{
 		coll_movie.find({_id:/*index*/ObjectId(_id)}).toArray(function(err,result){
+			//把id减一位报错是因为 ObjectId(_id) 不符合算法,但不停止服务
+			//变更id值但length不变，报错是因为查不到值 ，但却引入未定义变量引起.停止了nodejs服务
+			//(因为有未识别的变量-二级变量也不行 例如aa.bb.cc 或 aa[i].bb 这里的 cc 与 bb都算是二级变量，服务是启动不起来的)
+			//所以当查询结果为空时，要判断与跳转处理等，否则接下来的就是报错.
+			if(result[0]==null){res.redirect('/movie')}else{
+			//~~~~~~加入访问量统计~~~~~~~~~~~~
+			coll_movie.update({_id:ObjectId(_id)},{$inc:{pv:1}},function(err){
+				if(err){console.log(err)}	
+			})			
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			var title='<li>'+result[0].title+'</li>'
 			var director='<li>'+result[0].director+'</li>'
 			var country='<li>'+result[0].country+'</li>'
@@ -70,7 +86,7 @@ function routerall(app1){
 			var ul=title+director+country+language+year+descrtion
 			$("#details ul.width-3").html(ul)
 			
-			$(".h1").text('movie '+'《'+result[0].title+'》')
+			$(".h1").html('movie '+'《'+result[0].title+'》'+'<br/>-test-未获得豆瓣电影api高级权限，无法播放')
 			$("title").text(result[0].title)
 			//~~~~增加电影所属类型标签~~~~~~~~
 			var category=result[0].category
@@ -83,7 +99,9 @@ function routerall(app1){
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~
 			html=$.html()
 			res.send(html)
+			}
 		})
+		//}
 	})		
 	//~~~~~~~~~~~~~~~~~~~~
 	G_comment.ajax1(app1,'/ajax/movie/comment',coll_comment)
